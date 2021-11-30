@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
 public class Narrador {
 	
-	
 	public static int escenaActual = 0;
-	
+	public static String[] comandos = new String[] {"/help", "/save", "/exit"};
 	static List<Escena> allEscenas = new ArrayList<Escena>();
 	public static int intSeleccion;
 	public static class Escena{
@@ -19,6 +19,7 @@ public class Narrador {
 	}
 		
 	public static void main(String[] args) {
+		
 		
 		Escena escena0 = new Escena();
 		escena0.idEscena = 0;
@@ -64,7 +65,10 @@ public class Narrador {
 		}else if (seleccion.equals("b")){
 			intSeleccion = 3;
 			sets();
-		}else {
+		}else if(Arrays.asList(comandos).contains(seleccion)) {
+			comandos(seleccion);
+		}
+		else {
 			System.out.println("\nElige una opción adecuada.");
 			narracion();		
 		}		
@@ -109,7 +113,21 @@ public class Narrador {
 		
 	}
 	
-	public void comandoHelp() {
+	public static void comandos(String comando) {
+		if (comando.equals("/help")) {
+			System.out.println("\nComandos disponibles:\n\n"+
+				"/help --- Mostrar los comandos disponibles\n"+
+				"/save --- Guardar la partida en el estado actual\n"+
+				"/exit --- Salir del juego\n"
+			);				
+		}else if(comando.equals("/exit")) {
+			System.out.println("¡Hasta pronto!");
+			System.exit(0);
+		}else if(comando.equals("/save")) {
+			// GUARDAR PARTIDA
+		}
 			
 	}
+	
+
 }
