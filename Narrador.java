@@ -60,16 +60,20 @@ public class Narrador {
 		
 		if (seleccion.equals("a")) {
 			intSeleccion = 1;
+			sets();
 		}else if (seleccion.equals("b")){
 			intSeleccion = 3;
+			sets();
 		}else {
-			System.out.println("Elige una opción adecuada.");
-			//setEscena(escenaActual); ACÁ VOY
-		}
-		System.out.println(allEscenas.get(escenaActual).opciones[intSeleccion]);
+			System.out.println("\nElige una opción adecuada.");
+			narracion();		
+		}		
+	}
+	
+	public static void sets() {
+		//System.out.println(allEscenas.get(escenaActual).opciones[intSeleccion]);
 		escenaActual = (int) allEscenas.get(escenaActual).opciones[intSeleccion]; // Casting (conversión de tipos de datos)		
 		narracion();
-		//
 	}
 	
 	public static String getEscena() {
