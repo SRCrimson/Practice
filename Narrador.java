@@ -15,6 +15,11 @@ public class Narrador {
 	// Dado de 20 caras
 	static int min = 1;  
 	static int max = 20;
+	
+	// Combate
+	
+	static int probabilidadCombate = 4; // 20%
+	static boolean combate = false;  
 			
 	public static class Escena{
 		public int idEscena;
@@ -106,16 +111,15 @@ public class Narrador {
 	}
 
 	public void generarCombateAleatorio() {
+		if (lanzarDados() <= probabilidadCombate) {
+			combate = true;
+		};
 		
 	}
 	
-	public static void lanzarDados() {
-		int resultadoDados = (int)(Math.random()*(max-min+1)+min);
-		System.out.println("dados: " + resultadoDados);
-	}
-	
-	public void recompensaAleatoria() {
-		
+	public static int lanzarDados() {
+		int resultadoDados = (int)(Math.random()*(max-min+1)+min);		
+		return resultadoDados;
 	}
 	
 	public static void comandos(String comando) {
@@ -134,5 +138,18 @@ public class Narrador {
 			
 	}
 	
+	public static void combate() {
+		/* ¿Cómo se desarrolla un combate? - Bosquejo
+		 * Se determinan los involucrados en el combate. Siempre será el PJ vs una herencia de NPC.
+		 * Se decide quién tiene el primer turno según quien tenga un puntaje de destreza mayor entre los contendientes
+		 * En el turno del jugador, este podrá: Atacar con arma principal, atacar con hechizos (habilidad especial), usar objeto del inventario.
+		 * En el turno del NPC este atacará y usará una habilidad especial cada x turnos
+		 * - Cuando se ataca se determina si el golpe es exitoso o no de la siguiente manera: objetivo = 10 + nivel del atacante + clase de armadura del atacado - armadura del atacado, luego se lanza 1 dado de 20 caras, 
+		 *   si el resultado es menor o igual al número obtenido de la sumatoria anterior, el golpe es exitoso y se procede a determinar el daño realizado.
+		 * - El daño realizado es igual al daño del arma
+		 * - Luego de calcular el daño realizado se termina el turno y comienza el del rival
+		 * - El combate termina cuando uno de los combatientes obtiene HP menor o igual a 0. 
+		 * */
+	}
 
 }
