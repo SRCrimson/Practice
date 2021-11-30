@@ -11,6 +11,11 @@ public class Narrador {
 	public static String[] comandos = new String[] {"/help", "/save", "/exit"};
 	static List<Escena> allEscenas = new ArrayList<Escena>();
 	public static int intSeleccion;
+	
+	// Dado de 20 caras
+	static int min = 1;  
+	static int max = 20;
+			
 	public static class Escena{
 		public int idEscena;
 		public String narrativa;
@@ -18,9 +23,8 @@ public class Narrador {
 		
 	}
 		
-	public static void main(String[] args) {
-		
-		
+	public static void main(String[] args) {				
+		lanzarDados();
 		Escena escena0 = new Escena();
 		escena0.idEscena = 0;
 		escena0.narrativa = "Narrativa 0";
@@ -105,8 +109,9 @@ public class Narrador {
 		
 	}
 	
-	public void lanzarDados() {
-		
+	public static void lanzarDados() {
+		int resultadoDados = (int)(Math.random()*(max-min+1)+min);
+		System.out.println("dados: " + resultadoDados);
 	}
 	
 	public void recompensaAleatoria() {
