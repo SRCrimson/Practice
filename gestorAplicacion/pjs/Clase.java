@@ -1,9 +1,9 @@
-
+package gestorAplicacion.pjs;
 
 public enum Clase {
     
     GUERRERO(5,1, 1, 3, 1, 1), ARQUERO(1,5,1,1,3,1), MAGO(1,1,5,1,1,3);
-    private int fuerza, destreza, inteligencia, constitucion, velocidad, sabiduria;
+    private int fuerza, destreza, inteligencia, constitucion, carisma, sabiduria;
     
     private static Double hitBlock=0.09;         //probabilidad de bloquear golpe, es la misma para todas las clases excpeto GUERRERO, que tiene un bono de 20% de probabilidad
     private static Double critHitChance = 0.15;  //Probabilidad de golpe critico, solo cambia en la clase Arquero que tiene un 25%
@@ -13,12 +13,12 @@ public enum Clase {
     private String nombre;
     private String descripcion;
 
-    private Clase(int fuerza, int destreza, int inteligencia, int constitucion, int velocidad, int sabiduria) {
+    private Clase(int fuerza, int destreza, int inteligencia, int constitucion, int carisma, int sabiduria) {
         this.fuerza = fuerza;
         this.destreza = destreza;
         this.inteligencia = inteligencia;
         this.constitucion = constitucion;
-        this.velocidad = velocidad;
+        this.carisma = carisma;
         this.sabiduria = sabiduria;
     }
         
@@ -69,8 +69,8 @@ public enum Clase {
         return constitucion;
     }
 
-    public int getVelocidad() {
-        return velocidad;
+    public int getCarisma() {
+        return carisma;
     }
 
     public int getSabiduria() {

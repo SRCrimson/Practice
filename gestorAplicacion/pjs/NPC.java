@@ -1,16 +1,24 @@
-
+package gestorAplicacion.pjs;
 
 public class NPC {
-    private String nombre;
-    private int edad, nivel;
-    private Clase clase;    
-    private int FUE, DES, INT, CON, VEL, SAB;         //CON = constitucion, define la cantidad de vida del personaje
-                                                      //SAB = Sabiduria, define la 
+    public String nombre;
+    protected int edad;
+    public int nivel; // Hice public nivel
+    protected Clase clase;  
+    public int HP; // Agregué HP (Hit Points = Puntos de vida)
+    public int AC; // Agregué AC (Armor class = clase de armadura)
+    public int dano;
+    public int FUE, DES, INT, CON, CAR, SAB;     // Cambié de private a public para poderlos usar en Player y Narrador "JM". Cambié VEL por CAR.
+    
+                                                    //CON = constitucion, define la cantidad de vida del personaje 
+                                                    
+                                                    //SAB = Sabiduria, define la 
     
     //private Raza raza;                   Quitar comentario cuando se agregue clase Raza
     //private Inventario inventario        Quitar comentario cuandos e agregue clase Inventario
     
-    
+    public NPC() { // Agrego contructor sin argumentos para poder crear constructor en Player     
+	}
     
     public NPC(String nombre, int edad, Clase clase, int nivel) {
         this.nombre = nombre;
@@ -25,7 +33,7 @@ public class NPC {
                 this.CON = clase.GUERRERO.getConstitucion() + 2*nivel;           //clase Guerrero tendrá un aumento secundario para el atributo consitutcion;
                 this.DES = clase.GUERRERO.getDestreza() + 1*nivel;               //para todas las demas caracteristicas tendrá un aumento minimo
                 this.INT = clase.GUERRERO.getInteligencia() + 1*nivel;
-                this.VEL=clase.GUERRERO.getVelocidad()+1*nivel;
+                this.CAR =clase.GUERRERO.getCarisma()+1*nivel;
                 this.SAB=clase.GUERRERO.getSabiduria() +1*nivel;
                 clase.aplicarVentajas(clase);
             
@@ -34,7 +42,7 @@ public class NPC {
                 this.CON = clase.ARQUERO.getConstitucion() + 1*nivel;           //clase Arquero tendrá un aumento secundario para el atributo VEL;
                 this.DES = clase.ARQUERO.getDestreza() + 3*nivel;               //para todas las demas caracteristicas tendrá un aumento minimo
                 this.INT = clase.ARQUERO.getInteligencia() + 1*nivel;
-                this.VEL=clase.ARQUERO.getVelocidad()+2*nivel;
+                this.CAR=clase.ARQUERO.getCarisma()+2*nivel;
                 this.SAB=clase.ARQUERO.getSabiduria() +1*nivel;
                 clase.aplicarVentajas(clase);
             
@@ -44,7 +52,7 @@ public class NPC {
                 this.CON = clase.MAGO.getConstitucion() + 1*nivel;           //clase Mago tendrá un aumento secundario para el atributo SAB
                 this.DES = clase.MAGO.getDestreza() + 1*nivel;               //para todas las demas caracteristicas tendrá un aumento minimo
                 this.INT = clase.MAGO.getInteligencia() + 3*nivel;
-                this.VEL=clase.MAGO.getVelocidad()+1*nivel;
+                this.CAR=clase.MAGO.getCarisma()+1*nivel;
                 this.SAB=clase.MAGO.getSabiduria() + 2*nivel;
                 clase.aplicarVentajas(clase);
                 
@@ -53,9 +61,24 @@ public class NPC {
                 
     }
     
-    public void atacar(Arma arma){
+   /* public void atacar(Arma arma){
         int danio = arma.danio + (arma.danio* clase.)
+    }*/
+
+    public void goblin(){
+        this.nombre = "goblin";
+        this.HP = 10;
+        this.nivel = 1;
+        this.dano = 1;
+        this.FUE = 12;
+		this.DES = 110;
+		this.CON = 12;
+		this.INT = 12;
+		this.SAB = 12;
+		this.CAR = 12;
     }
+
+
     
     
 }

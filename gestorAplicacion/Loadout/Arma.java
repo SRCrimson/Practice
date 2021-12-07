@@ -1,20 +1,25 @@
-package loadout;
+package gestorAplicacion.Loadout;
 
 public class Arma {
+public String nombre;
 private	String descripcion;
-private	int daño;
+public static int dano;
 private	int precio;
 
-public Arma(String descripcion, int daño, int precio) {
+public Arma(){
+
+}
+public Arma(String nombre, String descripcion, int dano, int precio) { // AgreguÃ© nombre del arma
+	this.nombre = nombre;
 	this.descripcion = descripcion;
-	this.daño = daño;
+	this.dano = dano;
 	this.precio = precio;
 }
 
-public int getDaño() {  //Class Player{
-	return daño;		//	int fuerza;
+public static int getDano() {  //Class Player{
+	return dano;		//	int fuerza;
 }						//	Arma arma1 = new Arma();
-						//	fuerza += arma1.getdaño
+						//	fuerza += arma1.getdaï¿½o
 
 }
 

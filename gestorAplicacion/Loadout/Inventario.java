@@ -1,4 +1,4 @@
-package loadout;
+package gestorAplicacion.Loadout;
 
 public class Inventario {
 	int n;

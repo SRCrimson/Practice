@@ -1,9 +1,9 @@
-package loadout;
+package gestorAplicacion.Loadout;
 
 public class Armadura {
-	private	 String nombre;
+	public	 String nombre;
 	private	 String descripcion;
-	private	 int defensa;
+	private	 static int defensa; // Lo hice static
 	private	 int precio;
 
 public Armadura(String nombre, String descripcion, int defensa, int precio) {
@@ -13,13 +13,13 @@ public Armadura(String nombre, String descripcion, int defensa, int precio) {
 	this.precio      = precio;
 }
 
-public int getDefensa() {
+public static int getDefensa() { // Lo hice static
 	return defensa;
 }
 
-public int CambiarDefensa(int daño) {   //Implementacion en la clase Player | e.g:   Class Player {
-	this.defensa -= daño;               //                                   			int defensa;  
+public int CambiarDefensa(int dano) {   //Implementacion en la clase Player | e.g:   Class Player {
+	this.defensa -= dano;               //                                   			int defensa;  
 	return this.defensa;                //                                      		Armadura  "nivel1" = new Armadura(); 
 	}                                   //                                     			defensa = "nivel1".getDefensa();
-                                        //                                      		defensa = "nivel1".CambiarDefensa("daño"); } 
+                                        //                                      		defensa = "nivel1".CambiarDefensa("daï¿½o"); } 
 }										//Ideally this would be called in the method "combate"
