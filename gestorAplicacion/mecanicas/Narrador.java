@@ -2,6 +2,7 @@ package gestorAplicacion.mecanicas;
 import java.util.Scanner;
 
 import gestorAplicacion.Loadout.Armadura;
+import gestorAplicacion.pjs.Enemigo;
 import uiMain.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,8 +14,8 @@ import java.util.List;
 public class Narrador {
 	
 	public static int escenaActual = 0;
-	public static String[] comandos = new String[] {"/help", "/save", "/exit", "/hoja"};
-	public static String[] comandosCombate = new String[] {"/attack", "/option", "/esc"}; // Eliminar
+	public final static String[] comandos = new String[] {"/help", "/save", "/exit", "/hoja"};
+	public final static String[] comandosCombate = new String[] {"/attack", "/option", "/esc"}; // Eliminar
 	
 	
 	public static int intSeleccion;
@@ -31,18 +32,10 @@ public class Narrador {
 	static boolean combate = false;  
 			
 	
-	public static void main(String[] args) {				
-		
+	public static void main(String[] args) {						
 		uiMain.InterfazUsuario.inicio();
-		
-		
-
-		
-		
 		uiMain.InterfazUsuario.escenario();
-		uiMain.InterfazUsuario.narracion();
-		
-		
+		uiMain.InterfazUsuario.narracion();				
 	}
 	
 	public static void setEscena(String seleccion) {
@@ -67,8 +60,6 @@ public class Narrador {
 			uiMain.InterfazUsuario.enterCombate(uiMain.InterfazUsuario.allEscenas.get(escenaActual).enemigo);
 			combate(uiMain.InterfazUsuario.allEscenas.get(escenaActual).enemigo);
 		}
-
-		//System.out.println(allEscenas.size());
 		
 		uiMain.InterfazUsuario.narracion();
 		
@@ -111,8 +102,8 @@ public class Narrador {
 	
 	public static void combate(String enemigo) {
 		
-		//int pjDES = gestorAplicacion.pjs.Player.player.DES;
-		gestorAplicacion.pjs.NPC enemy = new gestorAplicacion.pjs.NPC();
+		//gestorAplicacion.pjs.NPC enemy = new gestorAplicacion.pjs.NPC();
+		gestorAplicacion.pjs.Enemigo enemy = new gestorAplicacion.pjs.Enemigo();
 		if (enemigo.equals("goblin")){
 			enemy.goblin();
 		}

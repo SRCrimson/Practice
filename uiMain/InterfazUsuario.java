@@ -107,7 +107,7 @@ public class InterfazUsuario {
 
 	public static void narracion() {
 		//System.out.println(gestorAplicacion.mecanicas.Narrador.allEscenas.get(0).);
-		System.out.println(allEscenas.size());
+		//System.out.println(allEscenas.size());
 		
 		System.out.println("\n" +gestorAplicacion.mecanicas.Narrador.getEscena()+"\n");
 		System.out.println("a) "+gestorAplicacion.mecanicas.Narrador.getOpciones()[0]);

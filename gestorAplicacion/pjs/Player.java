@@ -40,9 +40,20 @@ public class Player extends gestorAplicacion.pjs.NPC { //player debe ser hija de
 		
 	}
 
+	
+
 	public static Player player = new Player("asda");
 	/*public void moverse() { // NO ES NECESARIO
 		
 	}*/
+	@Override
+	public String getNombre() {		
+		return this.nombre;
+	}
+
+	@Override
+	public int getNivel() {
+		return this.nivel;
+	}
 
 }

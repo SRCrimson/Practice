@@ -1,6 +1,6 @@
 package gestorAplicacion.pjs;
 
-public class NPC {
+public abstract class NPC {
     public String nombre;
     protected int edad;
     public int nivel; // Hice public nivel
@@ -17,7 +17,7 @@ public class NPC {
     //private Raza raza;                   Quitar comentario cuando se agregue clase Raza
     //private Inventario inventario        Quitar comentario cuandos e agregue clase Inventario
     
-    public NPC() { // Agrego contructor sin argumentos para poder crear constructor en Player     
+    public NPC() { // Agrego contructor sin argumentos para poder crear constructor en Player   - Sobrecarga de método necesaria
 	}
     
     public NPC(String nombre, int edad, Clase clase, int nivel) {
@@ -25,8 +25,7 @@ public class NPC {
         this.edad = edad;
         this.clase = clase;
         this.nivel= nivel;                                                          //Se crea un NPC de nivel especificado
-                     
-        
+                             
         switch(clase){
             case GUERRERO:
                 this.FUE= Clase.GUERRERO.getFuerza() + 3 *nivel;                 // clase Guerrero tendrá un aumento mayor para el atributo FUE 
@@ -60,25 +59,12 @@ public class NPC {
         
                 
     }
+
+    public abstract String getNombre();
+    public abstract int getNivel();
     
    /* public void atacar(Arma arma){
         int danio = arma.danio + (arma.danio* clase.)
     }*/
-
-    public void goblin(){
-        this.nombre = "goblin";
-        this.HP = 10;
-        this.nivel = 1;
-        this.dano = 1;
-        this.FUE = 12;
-		this.DES = 110;
-		this.CON = 12;
-		this.INT = 12;
-		this.SAB = 12;
-		this.CAR = 12;
-    }
-
-
-    
     
 }
