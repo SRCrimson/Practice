@@ -42,10 +42,10 @@ public enum Clase {
     public void aplicarVentajas(Clase clase){
         switch (clase){
             case GUERRERO:
-                clase.GUERRERO.setHitBlock(0.2);
+                Clase.setHitBlock(0.2);
                 
             case ARQUERO:
-                clase.ARQUERO.setCritHitChance(0.25);
+                Clase.setCritHitChance(0.25);
             
             case MAGO:
                 

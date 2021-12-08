@@ -2,18 +2,18 @@ package gestorAplicacion.Loadout;
 
 public class Arma {
 public String nombre;
-private	String descripcion;
+//private	String descripcion;
 public static int dano;
-private	int precio;
+//private	int precio;
 
 public Arma(){
 
 }
 public Arma(String nombre, String descripcion, int dano, int precio) { // Agregué nombre del arma
 	this.nombre = nombre;
-	this.descripcion = descripcion;
-	this.dano = dano;
-	this.precio = precio;
+	//this.descripcion = descripcion;
+	Arma.dano = dano;
+	//this.precio = precio;
 }
 
 public static int getDano() {  //Class Player{

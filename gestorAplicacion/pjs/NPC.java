@@ -29,31 +29,31 @@ public class NPC {
         
         switch(clase){
             case GUERRERO:
-                this.FUE= clase.GUERRERO.getFuerza() + 3 *nivel;                 // clase Guerrero tendrá un aumento mayor para el atributo FUE 
-                this.CON = clase.GUERRERO.getConstitucion() + 2*nivel;           //clase Guerrero tendrá un aumento secundario para el atributo consitutcion;
-                this.DES = clase.GUERRERO.getDestreza() + 1*nivel;               //para todas las demas caracteristicas tendrá un aumento minimo
-                this.INT = clase.GUERRERO.getInteligencia() + 1*nivel;
-                this.CAR =clase.GUERRERO.getCarisma()+1*nivel;
-                this.SAB=clase.GUERRERO.getSabiduria() +1*nivel;
+                this.FUE= Clase.GUERRERO.getFuerza() + 3 *nivel;                 // clase Guerrero tendrá un aumento mayor para el atributo FUE 
+                this.CON = Clase.GUERRERO.getConstitucion() + 2*nivel;           //clase Guerrero tendrá un aumento secundario para el atributo consitutcion;
+                this.DES = Clase.GUERRERO.getDestreza() + 1*nivel;               //para todas las demas caracteristicas tendrá un aumento minimo
+                this.INT = Clase.GUERRERO.getInteligencia() + 1*nivel;
+                this.CAR = Clase.GUERRERO.getCarisma()+1*nivel;
+                this.SAB= Clase.GUERRERO.getSabiduria() +1*nivel;
                 clase.aplicarVentajas(clase);
             
             case ARQUERO:
-                this.FUE= clase.ARQUERO.getFuerza() + 1 *nivel;                 // clase Arquero tendrá un aumento mayor para el atributo DES 
-                this.CON = clase.ARQUERO.getConstitucion() + 1*nivel;           //clase Arquero tendrá un aumento secundario para el atributo VEL;
-                this.DES = clase.ARQUERO.getDestreza() + 3*nivel;               //para todas las demas caracteristicas tendrá un aumento minimo
-                this.INT = clase.ARQUERO.getInteligencia() + 1*nivel;
-                this.CAR=clase.ARQUERO.getCarisma()+2*nivel;
-                this.SAB=clase.ARQUERO.getSabiduria() +1*nivel;
+                this.FUE= Clase.ARQUERO.getFuerza() + 1 *nivel;                 // clase Arquero tendrá un aumento mayor para el atributo DES 
+                this.CON = Clase.ARQUERO.getConstitucion() + 1*nivel;           //clase Arquero tendrá un aumento secundario para el atributo VEL;
+                this.DES = Clase.ARQUERO.getDestreza() + 3*nivel;               //para todas las demas caracteristicas tendrá un aumento minimo
+                this.INT = Clase.ARQUERO.getInteligencia() + 1*nivel;
+                this.CAR= Clase.ARQUERO.getCarisma()+2*nivel;
+                this.SAB= Clase.ARQUERO.getSabiduria() +1*nivel;
                 clase.aplicarVentajas(clase);
             
                 
             case MAGO:
-                this.FUE= clase.MAGO.getFuerza() + 1 *nivel;                 // clase Mago tendrá un aumento mayor para el atributo INT 
-                this.CON = clase.MAGO.getConstitucion() + 1*nivel;           //clase Mago tendrá un aumento secundario para el atributo SAB
-                this.DES = clase.MAGO.getDestreza() + 1*nivel;               //para todas las demas caracteristicas tendrá un aumento minimo
-                this.INT = clase.MAGO.getInteligencia() + 3*nivel;
-                this.CAR=clase.MAGO.getCarisma()+1*nivel;
-                this.SAB=clase.MAGO.getSabiduria() + 2*nivel;
+                this.FUE= Clase.MAGO.getFuerza() + 1 *nivel;                 // clase Mago tendrá un aumento mayor para el atributo INT 
+                this.CON = Clase.MAGO.getConstitucion() + 1*nivel;           //clase Mago tendrá un aumento secundario para el atributo SAB
+                this.DES = Clase.MAGO.getDestreza() + 1*nivel;               //para todas las demas caracteristicas tendrá un aumento minimo
+                this.INT = Clase.MAGO.getInteligencia() + 3*nivel;
+                this.CAR= Clase.MAGO.getCarisma()+1*nivel;
+                this.SAB= Clase.MAGO.getSabiduria() + 2*nivel;
                 clase.aplicarVentajas(clase);
                 
         }

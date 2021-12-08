@@ -1,9 +1,9 @@
 package gestorAplicacion.pjs;
 
-import gestorAplicacion.Loadout.Arma;
+//import gestorAplicacion.Loadout.Arma;
 
 public class Player extends gestorAplicacion.pjs.NPC { //player debe ser hija de NPC
-	private int id;  //creo que el id es mejor si es un numero 
+	//private int id;  //creo que el id es mejor si es un numero 
 	//protected String email; // ¿Para qué email?
 	public int xp;
 	//public int movimientoBase; // No es necesario
@@ -25,8 +25,8 @@ public class Player extends gestorAplicacion.pjs.NPC { //player debe ser hija de
 		this.INT = 12;		
 		this.SAB = 12;
 		this.CAR = 12;
-		this.armadura = new gestorAplicacion.Loadout.Armadura("Escudo de cuero", "Escudo pequeño hecho de cuero", 3, 300);
-		this.arma = new gestorAplicacion.Loadout.Arma("Espada corta", "Pequeña espada corta forjada por herreros locales",4,1);
+		Player.armadura = new gestorAplicacion.Loadout.Armadura("Escudo de cuero", "Escudo pequeño hecho de cuero", 3, 300);
+		Player.arma = new gestorAplicacion.Loadout.Arma("Espada corta", "Pequeña espada corta forjada por herreros locales",4,1);
 		this.descripcion = "Humano del Este adiestrado en el arte de la guerra.";
 	}
 
