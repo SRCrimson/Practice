@@ -17,7 +17,7 @@ public abstract class NPC {
     //private Raza raza;                   Quitar comentario cuando se agregue clase Raza
     //private Inventario inventario        Quitar comentario cuandos e agregue clase Inventario
     
-    public NPC() { // Agrego contructor sin argumentos para poder crear constructor en Player   - Sobrecarga de método necesaria
+    public NPC() { // Agrego contructor sin argumentos para poder crear constructor en Player   - Sobrecarga de método necesariaa
 	}
     
     public NPC(String nombre, int edad, Clase clase, int nivel) {
