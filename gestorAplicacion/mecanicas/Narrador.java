@@ -57,7 +57,7 @@ public class Narrador {
 			comandos(seleccion);
 		}else{			
 			uiMain.InterfazUsuario.opcionInvalida();
-			//uiMain.InterfazUsuario.narracion();		
+			uiMain.InterfazUsuario.narracion();		
 		}
 	}
 	
@@ -69,7 +69,7 @@ public class Narrador {
 		}
 
 		//System.out.println(allEscenas.size());
-		uiMain.InterfazUsuario.escenario();
+		
 		uiMain.InterfazUsuario.narracion();
 		
 	}
@@ -94,18 +94,18 @@ public class Narrador {
 	public static void comandos(String comando) {
 		if (comando.equals("/help")) {
 			uiMain.InterfazUsuario.comandoHelp();	
-			//uiMain.InterfazUsuario.narracion();			
+			uiMain.InterfazUsuario.narracion();			
 		}else if(comando.equals("/exit")) {
 			uiMain.InterfazUsuario.comandoExit();
 			System.exit(0);
 		}else if(comando.equals("/hoja")){
 			uiMain.InterfazUsuario.hojaPJ();
-			//uiMain.InterfazUsuario.narracion();			
+			uiMain.InterfazUsuario.narracion();			
 		}else if(comando.equals("/save")) {
 			// GUARDAR PARTIDA
 		}else{
 			uiMain.InterfazUsuario.comandoEquivocado();
-			//uiMain.InterfazUsuario.narracion();
+			uiMain.InterfazUsuario.narracion();
 		}			
 	}
 	
