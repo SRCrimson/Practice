@@ -84,19 +84,25 @@ public class Narrador {
 	
 	public static void comandos(String comando) {
 		if (comando.equals("/help")) {
-			uiMain.InterfazUsuario.comandoHelp();	
-			uiMain.InterfazUsuario.narracion();			
+			uiMain.InterfazUsuario.comandoHelp();
+			if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
+				uiMain.InterfazUsuario.narracion();			
+			}
 		}else if(comando.equals("/exit")) {
 			uiMain.InterfazUsuario.comandoExit();
 			System.exit(0);
 		}else if(comando.equals("/hoja")){
 			uiMain.InterfazUsuario.hojaPJ();
-			uiMain.InterfazUsuario.narracion();			
+			if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
+				uiMain.InterfazUsuario.narracion();			
+			}
 		}else if(comando.equals("/save")) {
 			// GUARDAR PARTIDA
 		}else{
 			uiMain.InterfazUsuario.comandoEquivocado();
-			uiMain.InterfazUsuario.narracion();
+			if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
+				uiMain.InterfazUsuario.narracion();
+			}
 		}			
 	}
 	
@@ -164,6 +170,10 @@ public class Narrador {
 					gestorAplicacion.pjs.Player.player.HP -= enemy.dano;
 					if (gestorAplicacion.pjs.Player.player.HP < 0){
 						uiMain.InterfazUsuario.derrota(enemy.nombre);
+						escenaActual = 0;
+						uiMain.InterfazUsuario.inicio();
+						uiMain.InterfazUsuario.escenario();
+						uiMain.InterfazUsuario.narracion();				
 						break;
 					}
 				}else{

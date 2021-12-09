@@ -7,7 +7,7 @@ public class Enemigo extends NPC{
     }
     public void goblin(){
         this.nombre = "goblin";
-        this.HP = 10;
+        this.HP = 18;
         this.nivel = 1;
         this.dano = 1;
         this.FUE = 12;

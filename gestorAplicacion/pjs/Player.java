@@ -13,7 +13,7 @@ public class Player extends gestorAplicacion.pjs.NPC { //player debe ser hija de
 	public static gestorAplicacion.Loadout.Arma arma;
 	public Player(String Default) { // Jugador por defecto
 		this.nombre = "Freud Baggins";
-		this.HP = 5;
+		this.HP = 12;
 		this.AC = 6;
 		this.nivel = 1;
 		this.xp = 0;
