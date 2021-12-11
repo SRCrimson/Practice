@@ -11,6 +11,8 @@ public class Player extends gestorAplicacion.pjs.NPC { //player debe ser hija de
 	public String descripcion;
 	public static  gestorAplicacion.Loadout.Armadura armadura;
 	public static gestorAplicacion.Loadout.Arma arma;
+	public int aHP,aAC, aFUE, aDES, aINT, aCON, aCAR, aSAB;
+	 
 	public Player(String Default) { // Jugador por defecto
 		this.nombre = "Freud Baggins";
 		this.HP = 12;
@@ -28,7 +30,20 @@ public class Player extends gestorAplicacion.pjs.NPC { //player debe ser hija de
 		Player.armadura = new gestorAplicacion.Loadout.Armadura("Escudo de cuero", "Escudo pequeño hecho de cuero", 3, 300);
 		Player.arma = new gestorAplicacion.Loadout.Arma("Espada corta", "Pequeña espada corta forjada por herreros locales",4,1);
 		this.descripcion = "Humano del Este adiestrado en el arte de la guerra.";
+
 	}
+
+	public void arquetipo(){
+		this.aHP = this.HP;
+		this.aAC = this.AC;						
+		this.aFUE = this.FUE;
+		this.aDES = this.DES;
+		this.aCON = this.CON;
+		this.aINT = this.INT;		
+		this.aSAB = this.SAB;
+		this.aCAR = this.CAR;
+	}
+	
 
 	public void SubirNivel() {
 		this.nivel++;

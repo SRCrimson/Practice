@@ -1,9 +1,20 @@
 package uiMain;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import javax.sound.midi.SysexMessage;
+
+import java.lang.*;
+
+
 import gestorAplicacion.pjs.Player;
+import gestorAplicacion.Loadout.Arma;
+import gestorAplicacion.Loadout.Armadura;
+import gestorAplicacion.mecanicas.Colores;
+
+
 
 
 
@@ -11,6 +22,7 @@ public class InterfazUsuario {
 	public static List<Escena> allEscenas = new ArrayList<Escena>();
 	public static class Escena{
 		public int idEscena;
+		public String[] narracion;
 		public String narrativa;
 		public Object[] opciones;
 		public boolean hayCombate = false;
@@ -19,13 +31,57 @@ public class InterfazUsuario {
 	}
 	
 	public static void inicio() {
-	
+	gestorAplicacion.pjs.Player.player.arquetipo();
+	System.out.println(Colores.ROJO);
 	System.out.println("   ___|         |         |                                                   |              \\  |               |            \r\n"
 			+ "  |       _` |  |   _` |  __ \\    _ \\ _  /   _ \\    __|       _ \\  __ \\       |   _` |        \\ |   _` |   __|  __ \\    _ \\  \r\n"
 			+ "  |      (   |  |  (   |  |   |  (   |  /   (   | \\__ \\       __/  |   |      |  (   |      |\\  |  (   |  (     | | |  (   | \r\n"
 			+ " \\____| \\__,_| _| \\__,_| _.__/  \\___/ ___| \\___/  ____/     \\___| _|  _|     _| \\__,_|     _| \\_| \\__,_| \\___| _| |_| \\___/\n");
+	System.out.println("                                                        Creado por John Mesa, Eider Pena, Santiago Rivera, Brayan Caballero");
+	System.out.println(Colores.RESET);
+	String[] tutorial = new String[] {"\u250C\u2500\u2500\u2500 ¿CÓMO JUGAR? \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510",
+	"\u2502 Este relato contiene muchas elecciones: las hay sencillas, sensatas, temerarias... e incluso muy peligrosas.               \u2502\n"+ 
+	"\u2502 Estas elecciones las encontrarás siempre al final de cada narración.                                                       \u2502\n"+
+	"\u2502 Decide entre uno u otro camino escribiendo 'a' o 'b', según corresponda y presionando a continuación la tecla 'Enter'.     \u2502\n"+
+	"\u2502 Puedes realizar otras acciones usando comandos especiales. Puedes ver una lista de comandos escribiendo: help              \u2502",
+	"\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518"
+	};
+	for (String s: tutorial){
+		System.out.println(s);
 	}
+	
 
+
+	String swordArt = "                                            /\\ \r\n"+
+	"                                /vvvvvvvvvvvv \\--------------------------------------,\r\n"+
+	"                                `^^^^^^^^^^^^ /=====================================\"\r\n"+
+	"                                	    \\/";
+	
+	Scanner teclado = new Scanner(System.in);
+	boolean salirMenu = false;
+	
+	do{
+		System.out.println(swordArt);
+		System.out.println("                                                   1 - Nuevo juego");
+		System.out.println("                                                   2 - Cargar juego");
+		System.out.println("                                                   3 - Salir");
+		System.out.print(">> ");	
+		
+		try{	
+			switch(teclado.nextInt()){
+				case 1: gestorAplicacion.mecanicas.Narrador.iniciarNuevo();salirMenu=true;break;
+				case 2: gestorAplicacion.mecanicas.Narrador.cargarJuego();salirMenu=true;break;
+				case 3: comandoExit();System.exit(0);
+				default:System.out.println(Colores.ROJO+"Elige una opción válida"+Colores.RESET);
+			}		
+		}catch(InputMismatchException e){
+			System.out.println(Colores.ROJO+"Elige una opción válida"+Colores.RESET);
+			teclado.next();
+		}
+	}
+	while (!salirMenu);	
+}
+	
 	public static void escenario(){
 
 		
@@ -33,8 +89,9 @@ public class InterfazUsuario {
 		Escena escena0 = new Escena();
 		escena0.hayCombate = false;
 		escena0.idEscena = 0;
+		
 		escena0.narrativa = ""+
-		"\nLa zozobra se había instalado en los habitantes del lejano poblado de Campoverde. Atrás habían quedado los días donde los párvulos retoños de Campoverde\n"+
+		"\n"+Colores.BLANCO_BOLD+"Capítulo 1 - Oculto tras las sombras"+Colores.RESET+"\n\nLa zozobra se había instalado en los habitantes del lejano poblado de Campoverde. Atrás habían quedado los días donde los párvulos retoños de Campoverde\n"+
 		"jugaban a las escondidillas en los frondosos bosques limítrofes. Una invisible amenaza se arrastraba por la región, las desapariciones y asesinatos cada\n"+
 		"vez eran más frecuentes y el alcalde Dientemayor había reunido cuadrillas de exploración para contrarrestar la amenaza oculta tras las sombras.\n\n"+
 		"Has decidido no quedarte de brazos cruzados, pues al no haber cumplido aún la mayoría de edad, los adultos del lugar decidieron que no podrías ser parte\n"+
@@ -114,64 +171,82 @@ public class InterfazUsuario {
 		//System.out.println(allEscenas.size());
 		
 		System.out.println("\n" +gestorAplicacion.mecanicas.Narrador.getEscena()+"\n");
-		System.out.println("a) "+gestorAplicacion.mecanicas.Narrador.getOpciones()[0]);
-		System.out.println("b) "+gestorAplicacion.mecanicas.Narrador.getOpciones()[2]);
+		//System.out.println("\u250C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510");
+		//System.out.print("\u250C");
+
+		//Math.max(gestorAplicacion.mecanicas.Narrador.getOpciones()[0].toString().length(),gestorAplicacion.mecanicas.Narrador.getOpciones()[2].toString().length());
+		String str = "\u2500";
+		String marco = str.repeat(5+Math.max(gestorAplicacion.mecanicas.Narrador.getOpciones()[0].toString().length(),gestorAplicacion.mecanicas.Narrador.getOpciones()[2].toString().length()));
+		String str2 = "-";
+		String separador = str2.repeat(5+Math.max(gestorAplicacion.mecanicas.Narrador.getOpciones()[0].toString().length(),gestorAplicacion.mecanicas.Narrador.getOpciones()[2].toString().length()));
+		System.out.println(marco);
+		
+		System.out.println(Colores.AZUL+" a) "+Colores.RESET + gestorAplicacion.mecanicas.Narrador.getOpciones()[0]);
+		System.out.println(separador);
+		System.out.println(Colores.AZUL+" b) "+Colores.RESET + gestorAplicacion.mecanicas.Narrador.getOpciones()[2]);		
+		System.out.print(marco);		
 		promptPlayer();
 
 		
 	}
 	
 	public static void promptPlayer() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("\nElige una opción:\n");
+		
+		Scanner scanner = new Scanner(System.in);		
+		System.out.print(Colores.AZUL+"\n\nElige una opción: "+Colores.RESET);
 		String seleccion = scanner.nextLine();
+		System.out.print("\n");
 		
 		gestorAplicacion.mecanicas.Narrador.setEscena(seleccion);
 		scanner.close();
 	}
 	
 	public static void opcionInvalida() {
-		System.out.println("Elige una opción válida.");
+		System.out.println(Colores.AMARILLO+"Elige una opción válida."+Colores.RESET);
 	}
 	
 	public static void comandoHelp() {
-		System.out.println("\nCOMANDOS\n\n"+
-				"/help --- Mostrar los comandos disponibles\n"+
-				"/save --- Guardar la partida en el estado actual\n"+
-				"/exit --- Salir del juego\n"+
-				"\nCOMANDOS EN COMBATE\n\n"+
-				"/atacar --- Atacar con el arma equipada\n"+
-				"/pocion --- Usar poción de curación\n"+
-				"/escapar --- Intentar escapar del combate actual, 30% de probabilidad\n"
+		System.out.println(Colores.BLANCO_BOLD+"\nCOMANDOS\n\n"+Colores.RESET+
+				"help --- Mostrar los comandos disponibles\n"+
+				"save --- Guardar la partida en el estado actual\n"+
+				"exit --- Salir del juego\n"+
+				"hoja --- Muestra la hoja de personaje\n"+
+				Colores.BLANCO_BOLD+"\nCOMANDOS EN COMBATE\n\n"+Colores.RESET+
+				"atacar --- Atacar con el arma equipada\n"+
+				"pocion --- Usar poción de curación\n"+
+				"escapar --- Intentar escapar del combate actual, 30% de probabilidad"
 			);
 	}
 
 	public static void hojaPJ(){
-		System.out.println("\nNombre del personaje: " + gestorAplicacion.pjs.Player.player.nombre +"\n"+
+		//gestorAplicacion.pjs.Player.player.arquetipo();
+		int nextLvlxp = gestorAplicacion.pjs.Player.player.nivel + gestorAplicacion.pjs.Player.player.nivel * 1000;		
+		System.out.println("Nombre del personaje: " + gestorAplicacion.pjs.Player.player.nombre +"\n"+
+		"HP: " + gestorAplicacion.pjs.Player.player.HP+" ("+gestorAplicacion.pjs.Player.player.aHP+")\n"+
 		"Nivel: " + gestorAplicacion.pjs.Player.player.nivel+"\n"+
-		"Experiencia: " + gestorAplicacion.pjs.Player.player.xp+"\n"+
-		"FUE: " + gestorAplicacion.pjs.Player.player.FUE+"\n"+
+		"Experiencia: " + gestorAplicacion.pjs.Player.player.xp+"/"+nextLvlxp+"\n"+
+		"FUE: " + gestorAplicacion.pjs.Player.player.FUE+"\n"+		
 		"DES: " + gestorAplicacion.pjs.Player.player.DES+"\n"+
 		"CON: " + gestorAplicacion.pjs.Player.player.CON+"\n"+
 		"INT: " + gestorAplicacion.pjs.Player.player.INT+"\n"+
 		"SAB: " + gestorAplicacion.pjs.Player.player.SAB+"\n"+
 		"CAR: " + gestorAplicacion.pjs.Player.player.CAR+"\n"+
-		"Arma equipada: " + Player.arma.nombre+"\n"+
-		"Escudo equipado: " + Player.armadura.nombre+"\n"+
+		"Arma equipada: " + Player.arma.nombre+" (+"+Arma.dano+")\n"+
+		"Escudo equipado: " + Player.armadura.nombre+" (+"+Armadura.getDefensa()+")\n"+
 		"Descripción: " + gestorAplicacion.pjs.Player.player.descripcion+"\n"
 		);
 	}
 	
 	public static void comandoExit() {
-		System.out.println("�Hasta pronto!");
+		System.out.println("¡Hasta pronto!");
 	}
 
 	public static void enterCombate(String enemigo){
-		System.out.println("Un " + enemigo + " salvaje apareció.\n");
+		System.out.println(Colores.AMARILLO+"¡¡¡Un " + enemigo + " salvaje apareció!!!.\n"+Colores.RESET);
 	}
 
 	public static void turnoCombate(){		
-		System.out.println("\n¿Qué deseas hacer?\n");
+		System.out.print(Colores.AZUL+"\n¿Qué deseas hacer?: "+Colores.RESET);
 	}
 
 	public static void comandoAttack(){
@@ -183,13 +258,16 @@ public class InterfazUsuario {
 	}
 	
 	public static void comandoEscape(){
-		System.out.println("Tratas de escapar y..");
+		System.out.println("Tratas de escapar y...");
 	}
 
 	public static void comandoEquivocado(){
-		System.out.println("Comando equivocado");
+		System.out.println(Colores.AMARILLO+"Comando equivocado"+Colores.RESET);
 	}
 
+	public static void ataqueExitoso(int dano){
+		System.out.println("Haces " + Colores.AZUL + dano + Colores.RESET+" de daño al enemigo.");
+	}
 	public static void ataqueFallido(String atacante){
 		System.out.println(atacante + " falló su ataque");
 	}
@@ -203,14 +281,14 @@ public class InterfazUsuario {
 	}
 
 	public static void ataqueRivalExito(int dano, String nombre){
-		System.out.println("El " + nombre + " enemigo hizo " + dano + " de daño\nAhora tienes "+ gestorAplicacion.pjs.Player.player.HP + " de vida.");
+		System.out.println("El " + nombre + " enemigo hizo " +Colores.ROJO +dano+ Colores.RESET+ " de daño\nAhora tienes "+ gestorAplicacion.pjs.Player.player.HP + " de vida.");
 	}
 
 	public static void victoria(String derrotado, int exp){
-		System.out.println("Has derrotado a " + derrotado + " y has obtenido " + exp*200 + " de experiencia");
+		System.out.println(Colores.VERDE+"Has derrotado a " + derrotado + " y has obtenido " + exp*200 + " de experiencia"+Colores.RESET);
 	}
 
 	public static void derrota(String victorioso){
-		System.out.println("Has sido derrotado por " + victorioso);
+		System.out.println(Colores.ROJO+"Has sido derrotado por " + victorioso+Colores.RESET);
 	}
 }

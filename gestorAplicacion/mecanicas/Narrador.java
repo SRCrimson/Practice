@@ -14,9 +14,7 @@ import java.util.List;
 public class Narrador {
 	
 	public static int escenaActual = 0;
-	public final static String[] comandos = new String[] {"/help", "/save", "/exit", "/hoja"};
-	public final static String[] comandosCombate = new String[] {"/attack", "/option", "/esc"}; // Eliminar
-	
+	public final static String[] comandos = new String[] {"help", "save", "exit", "hoja"};	
 	
 	public static int intSeleccion;
 
@@ -30,12 +28,23 @@ public class Narrador {
 	
 	static int probabilidadCombate = 4; // 20%
 	static boolean combate = false;  
+	public static int flvl = 0;
+	public static int nextLvlxp;
 			
 	
 	public static void main(String[] args) {						
 		uiMain.InterfazUsuario.inicio();
+		/*uiMain.InterfazUsuario.escenario();
+		uiMain.InterfazUsuario.narracion();*/
+	}
+
+	public static void iniciarNuevo(){
 		uiMain.InterfazUsuario.escenario();
-		uiMain.InterfazUsuario.narracion();				
+		uiMain.InterfazUsuario.narracion();
+	}
+
+	public static void cargarJuego(){
+		System.out.println("Acá se debe cargar el juego"); // Eliminar cuando se cree el mecanismo de carga
 	}
 	
 	public static void setEscena(String seleccion) {
@@ -83,26 +92,29 @@ public class Narrador {
 	}
 	
 	public static void comandos(String comando) {
-		if (comando.equals("/help")) {
+		if (comando.equals("help")) {
 			uiMain.InterfazUsuario.comandoHelp();
-			if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
+			/*if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
 				uiMain.InterfazUsuario.narracion();			
-			}
-		}else if(comando.equals("/exit")) {
+			}*/
+			uiMain.InterfazUsuario.narracion();			
+		}else if(comando.equals("exit")) {
 			uiMain.InterfazUsuario.comandoExit();
 			System.exit(0);
-		}else if(comando.equals("/hoja")){
+		}else if(comando.equals("hoja")){
 			uiMain.InterfazUsuario.hojaPJ();
-			if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
+			/*if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
 				uiMain.InterfazUsuario.narracion();			
-			}
-		}else if(comando.equals("/save")) {
+			}*/
+			uiMain.InterfazUsuario.narracion();
+		}else if(comando.equals("save")) {
 			// GUARDAR PARTIDA
 		}else{
 			uiMain.InterfazUsuario.comandoEquivocado();
-			if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
+			/*if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
 				uiMain.InterfazUsuario.narracion();
-			}
+			}*/
+			uiMain.InterfazUsuario.narracion();			
 		}			
 	}
 	
@@ -129,23 +141,23 @@ public class Narrador {
 				uiMain.InterfazUsuario.turnoCombate();
 				String comando = scannerCombate.nextLine();
 				
-				if (comando.equals("/atacar")){
+				if (comando.equals("atacar")){
 					uiMain.InterfazUsuario.comandoAttack();
 					if (lanzarDados()<=objetivoRival){ // Si el resultado es exitoso (menor o igual que el objetivo)	
 						int dano = gestorAplicacion.Loadout.Arma.getDano();
-						System.out.println("Haces " + dano + " de daño al enemigo.");
+						uiMain.InterfazUsuario.ataqueExitoso(dano);
 						enemy.HP -= gestorAplicacion.Loadout.Arma.getDano();
 					}else{
 						uiMain.InterfazUsuario.ataqueFallido(gestorAplicacion.pjs.Player.player.nombre);
 					}
 					playerTurn = false;
-				}else if(comando.equals("/pocion")){
+				}else if(comando.equals("pocion")){
 					// Falta por programar el uso de pociones
 					uiMain.InterfazUsuario.comandoPotion();
 					playerTurn = false;
-				}else if(comando.equals("/hoja")){
+				}else if(comando.equals("hoja")){
 					uiMain.InterfazUsuario.hojaPJ();				
-				}else if(comando.equals("/escapar")){ // PROGRAMAR ALGUNOS BICHOS DE LOS CUALES UNO NO SE PUEDA ESCAPAR
+				}else if(comando.equals("escapar")){ // PROGRAMAR ALGUNOS BICHOS DE LOS CUALES UNO NO SE PUEDA ESCAPAR
 					uiMain.InterfazUsuario.comandoEscape();
 					if (lanzarDados() <= 6){
 						uiMain.InterfazUsuario.escapeExitoso();
@@ -198,8 +210,7 @@ public class Narrador {
 
 	public static void darExp(int enemyLvl){
 		gestorAplicacion.pjs.Player.player.xp += enemyLvl*200;
-		int flvl = 0;
-		int nextLvlxp = flvl + gestorAplicacion.pjs.Player.player.nivel * 1000;		
+		nextLvlxp = flvl + gestorAplicacion.pjs.Player.player.nivel * 1000;		
 		if (gestorAplicacion.pjs.Player.player.xp >= nextLvlxp){
 			flvl = nextLvlxp;
 			gestorAplicacion.pjs.Player.player.nivel++;
