@@ -111,10 +111,10 @@ public class Narrador {
 			// GUARDAR PARTIDA
 		}else{
 			uiMain.InterfazUsuario.comandoEquivocado();
-			/*if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
+			if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
 				uiMain.InterfazUsuario.narracion();
-			}*/
-			uiMain.InterfazUsuario.narracion();			
+			}
+			//uiMain.InterfazUsuario.narracion();			
 		}			
 	}
 	
