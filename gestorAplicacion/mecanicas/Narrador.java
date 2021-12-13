@@ -94,19 +94,19 @@ public class Narrador {
 	public static void comandos(String comando) {
 		if (comando.equals("help")) {
 			uiMain.InterfazUsuario.comandoHelp();
-			/*if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
+			if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
 				uiMain.InterfazUsuario.narracion();			
-			}*/
-			uiMain.InterfazUsuario.narracion();			
+			}
+			//uiMain.InterfazUsuario.narracion();			
 		}else if(comando.equals("exit")) {
 			uiMain.InterfazUsuario.comandoExit();
 			System.exit(0);
 		}else if(comando.equals("hoja")){
 			uiMain.InterfazUsuario.hojaPJ();
-			/*if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
+			if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
 				uiMain.InterfazUsuario.narracion();			
-			}*/
-			uiMain.InterfazUsuario.narracion();
+			}
+			//uiMain.InterfazUsuario.narracion();
 		}else if(comando.equals("save")) {
 			// GUARDAR PARTIDA
 		}else{
