@@ -26,6 +26,7 @@ public class InterfazUsuario {
 		public String narrativa;
 		public Object[] opciones;
 		public boolean hayCombate = false;
+		public boolean escenaFinal = false;
 		public String enemigo;
 		
 	}
@@ -152,10 +153,11 @@ public class InterfazUsuario {
 
 
 		Escena escena6 = new Escena();
+		escena6.escenaFinal = true;
 		escena6.hayCombate = false;
 		escena6.idEscena = 6;
 		escena6.narrativa = "Hasta acá la demo.";
-		escena6.opciones = new Object[] {"Jugar de nuevo", 0, "salir", 0};
+		//escena6.opciones = new Object[] {"Jugar de nuevo", 0, "salir", 0};
 		allEscenas.add(escena6);
 		
 		Escena escena7 = new Escena();
@@ -171,7 +173,7 @@ public class InterfazUsuario {
 	public static void narracion() {
 		//System.out.println(gestorAplicacion.mecanicas.Narrador.allEscenas.get(0).);
 		//System.out.println(allEscenas.size());
-		
+
 		System.out.println("\n" +gestorAplicacion.mecanicas.Narrador.getEscena()+"\n");
 		//System.out.println("\u250C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510");
 		//System.out.print("\u250C");
@@ -293,4 +295,11 @@ public class InterfazUsuario {
 	public static void derrota(String victorioso){
 		System.err.println("Has sido derrotado por " + victorioso + " \uD83D\uDE22 \uD83D\uDE22 \uD83D\uDE22 \n\n");
 	}
+
+	public static void escenaFinal(){		
+		
+		System.out.println("Proyecto de Programación orientada a objetos\nUniversidad Nacional - Sede Medellín\n\nIntegrantes\n\nSantiago Rivera\nBrayan Caballero\nEider Pena\nJohn Mesa\n\n2021");
+		
+	}
+
 }

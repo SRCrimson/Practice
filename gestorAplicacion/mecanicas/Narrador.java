@@ -75,7 +75,13 @@ public class Narrador {
 	}
 	
 	public static String getEscena() {
-		return uiMain.InterfazUsuario.allEscenas.get(escenaActual).narrativa;
+		if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).escenaFinal){
+			return uiMain.InterfazUsuario.allEscenas.get(escenaActual).narrativa;
+		}else{
+			uiMain.InterfazUsuario.escenaFinal();	
+			System.exit(0);
+			return "";
+		}
 	}
 	
 	public static Object[] getOpciones() {
@@ -219,8 +225,7 @@ public class Narrador {
 		}
 	}
 
-	public static void darOro(int oro){
-		
+	public static void darOro(int oro){		
 		gestorAplicacion.pjs.Player.player.wallet += oro;
 	}
 }
