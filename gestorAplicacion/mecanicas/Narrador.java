@@ -192,9 +192,9 @@ public class Narrador {
 			}else{ // Si es el turno del NPC				
 				if (lanzarDados()<=objetivoPj){ // Si el resultado es exitoso (menor o igual que el objetivo)
 					int dano = enemy.dano;
-                                        if(gestorAplicacion.pjs.Player.getClase().getHitBlock()>= (Math.random()*10)){
-                                            uiMain.InterfazUsuario.ataqueBloqueado();
-                                        }else{
+                    if(gestorAplicacion.pjs.Player.getClase().getHitBlock()>= (Math.random()*10)){
+							uiMain.InterfazUsuario.ataqueBloqueado();
+					}else{
 					uiMain.InterfazUsuario.ataqueRivalExito(dano, enemy.nombre);
 					gestorAplicacion.pjs.Player.player.HP -= enemy.dano;
                                         }
@@ -206,6 +206,7 @@ public class Narrador {
 						uiMain.InterfazUsuario.narracion();				
 						break;
 					}
+					
 				}else{
 					uiMain.InterfazUsuario.ataqueFallido(enemy.nombre);
 				}
