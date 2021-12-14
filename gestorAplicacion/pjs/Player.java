@@ -9,6 +9,7 @@ public class Player extends gestorAplicacion.pjs.NPC { //player debe ser hija de
 	//public int movimientoBase; // No es necesario
 	public int HP;
 	public String descripcion;
+        public static Clase clase;
 	public static  gestorAplicacion.Loadout.Armadura armadura;
 	public static gestorAplicacion.Loadout.Arma arma;
 	public int aHP,aAC, aFUE, aDES, aINT, aCON, aCAR, aSAB;
@@ -16,7 +17,7 @@ public class Player extends gestorAplicacion.pjs.NPC { //player debe ser hija de
 	 
 	public Player(String Default) { // Jugador por defecto
 		this.nombre = "Freud Baggins";
-		this.HP = 12;
+		this.HP = 20;
 		this.AC = 6;
 		this.nivel = 1;
 		this.xp = 0;
@@ -72,5 +73,11 @@ public class Player extends gestorAplicacion.pjs.NPC { //player debe ser hija de
 	public int getNivel() {
 		return this.nivel;
 	}
+
+    public static Clase getClase() {
+        return clase;
+    }
+        
+        
 
 }

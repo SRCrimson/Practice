@@ -5,8 +5,8 @@ public enum Clase {
     GUERRERO(5,1, 1, 3, 1, 1), ARQUERO(1,5,1,1,3,1), MAGO(1,1,5,1,1,3);
     private int fuerza, destreza, inteligencia, constitucion, carisma, sabiduria;
     
-    private static Double hitBlock=0.09;         //probabilidad de bloquear golpe, es la misma para todas las clases excpeto GUERRERO, que tiene un bono de 20% de probabilidad
-    private static Double critHitChance = 0.15;  //Probabilidad de golpe critico, solo cambia en la clase Arquero que tiene un 25%
+    private static Double hitBlock=3.5;         //probabilidad de bloquear golpe, es la misma para todas las clases excpeto GUERRERO, que tiene un bono de 20% de probabilidad
+    private static Double critHitChance = 3.5;  //Probabilidad de golpe critico, solo cambia en la clase Arquero que tiene un 25%
     
     //LOS DOS ANTERIORES ATRIBUTOS QUEDAN PENDIENTES A REVISION Y APROBACION POR EL GRUPO
     
@@ -42,10 +42,10 @@ public enum Clase {
     public void aplicarVentajas(Clase clase){
         switch (clase){
             case GUERRERO:
-                Clase.setHitBlock(0.2);
+                Clase.setHitBlock(4.8);
                 
             case ARQUERO:
-                Clase.setCritHitChance(0.25);
+                Clase.setCritHitChance(5.5);
             
             case MAGO:
                 
@@ -84,19 +84,18 @@ public enum Clase {
     public static void setCritHitChance(Double critHitChance) {
         Clase.critHitChance = critHitChance;
     }
-    
-    
 
-    
-}
+    public static Double getHitBlock() {
+        return hitBlock;
+    }
 
-class Test {
-    public static void main(String[] args) {
-        
-            
-        System.out.println(Clase.GUERRERO.getDestreza());
-        System.out.println("fin");
+    public static Double getCritHitChance() {
+        return critHitChance;
     }
     
     
+
+    
 }
+
+

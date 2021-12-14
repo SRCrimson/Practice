@@ -272,6 +272,11 @@ public class InterfazUsuario {
 	public static void ataqueExitoso(int dano){
 		System.out.println("Haces " + dano + " de daño al enemigo. \u2764");
 	}
+        
+        public static void golpeCritico(int dano){
+		System.out.println("¡¡Golpe critico!! !!" + dano + " de daño al enemigo!!. \u2764");
+	}
+        
 	public static void ataqueFallido(String atacante){
 		System.out.println(atacante + " falló su ataque. \uD83D\uDE02");
 	}
@@ -280,6 +285,10 @@ public class InterfazUsuario {
 		System.out.println("Logras escapar de la batalla \uD83D\uDE06");
 	}
 	
+        public static void ataqueBloqueado(){
+		System.out.println("Logras bloquear el ataque enemigo. \uD83D\uDE06");
+	}
+        
 	public static void escapeFallido(){
 		System.out.println("Fallas en tu intento de huir ...miserablemente. \uD83D\uDE0C");
 	}
