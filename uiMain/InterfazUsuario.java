@@ -311,4 +311,8 @@ public class InterfazUsuario {
 		
 	}
 
+	public static void juegoGuardado(){
+		System.out.println("¡Juego guardado con éxito!");
+	}
+
 }

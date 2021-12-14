@@ -121,6 +121,8 @@ public class Narrador implements Serializable{
 			//uiMain.InterfazUsuario.narracion();
 		}else if(comando.equals("save")) {
 			baseDatos.persistencia.escribirFichero();
+			uiMain.InterfazUsuario.juegoGuardado();
+			uiMain.InterfazUsuario.narracion();
 		}else{
 			uiMain.InterfazUsuario.comandoEquivocado();
 			if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
