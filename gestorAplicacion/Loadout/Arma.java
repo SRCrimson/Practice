@@ -1,6 +1,8 @@
 package gestorAplicacion.Loadout;
 
-public class Arma {
+import java.io.Serializable;
+
+public class Arma{
 	public String nombre;
 	public	String descripcion;
 	public static int dano;

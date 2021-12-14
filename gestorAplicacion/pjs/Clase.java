@@ -1,6 +1,8 @@
 package gestorAplicacion.pjs;
 
-public enum Clase {
+import java.io.Serializable;
+
+public enum Clase implements Serializable{
     
     GUERRERO(5,1, 1, 3, 1, 1), ARQUERO(1,5,1,1,3,1), MAGO(1,1,5,1,1,3);
     private int fuerza, destreza, inteligencia, constitucion, carisma, sabiduria;

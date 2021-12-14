@@ -1,8 +1,9 @@
 package gestorAplicacion.Loadout;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Inventario {
+public class Inventario implements Serializable{
 	
 	public static List<Arma>     listaArmas      = new ArrayList<Arma>();
 

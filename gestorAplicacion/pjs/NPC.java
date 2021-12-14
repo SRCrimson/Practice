@@ -1,6 +1,8 @@
 package gestorAplicacion.pjs;
 
-public abstract class NPC {
+import java.io.Serializable;
+
+public abstract class NPC implements Serializable{
     public String nombre;
     protected int edad;
     public int nivel; // Hice public nivel

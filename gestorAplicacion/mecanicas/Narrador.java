@@ -4,6 +4,9 @@ import java.util.Scanner;
 import gestorAplicacion.Loadout.Armadura;
 import gestorAplicacion.pjs.Enemigo;
 import uiMain.*;
+
+import java.io.Serializable;
+import java.sql.SQLData;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +14,8 @@ import java.util.List;
 //import uiMain.*;
 
 
-public class Narrador {
+public class Narrador implements Serializable{
+	
 	
 	public static int escenaActual = 0;
 	public final static String[] comandos = new String[] {"help", "save", "exit", "hoja"};	
@@ -44,6 +48,8 @@ public class Narrador {
 	}
 
 	public static void cargarJuego(){
+		baseDatos.persistencia.leerFichero();
+		iniciarNuevo();
 		System.out.println("Acá se debe cargar el juego"); // Eliminar cuando se cree el mecanismo de carga
 	}
 	
@@ -114,7 +120,7 @@ public class Narrador {
 			}
 			//uiMain.InterfazUsuario.narracion();
 		}else if(comando.equals("save")) {
-			// GUARDAR PARTIDA
+			baseDatos.persistencia.escribirFichero();
 		}else{
 			uiMain.InterfazUsuario.comandoEquivocado();
 			if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
