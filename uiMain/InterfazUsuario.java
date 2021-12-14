@@ -286,8 +286,8 @@ public class InterfazUsuario {
 		System.err.println("El " + nombre + " enemigo atacó. \uD83D\uDDE1 \nEl " + nombre + " te hizo "  + dano +  " de daño\nAhora tienes "+ gestorAplicacion.pjs.Player.player.HP + " de vida.");
 	}
 
-	public static void victoria(String derrotado, int exp){
-		System.out.println("Has derrotado a " + derrotado + " y has obtenido " + exp*200 + " de experiencia. \uD83D\uDE03 ");
+	public static void victoria(String derrotado, int exp, int oro){
+		System.out.println("Has derrotado a " + derrotado + " y has obtenido " + exp*200 + " de experiencia y "+ oro +" monedas de oro. \uD83D\uDE03 ");
 	}
 
 	public static void derrota(String victorioso){

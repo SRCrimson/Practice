@@ -172,8 +172,10 @@ public class Narrador {
 				}
 				
 				if (enemy.HP < 0){
-					uiMain.InterfazUsuario.victoria(enemy.nombre, enemy.nivel);
-					darExp(enemy.nivel);					
+					int oro = (int)(Math.random()*(22-10+1)+10)*enemy.nivel;
+					uiMain.InterfazUsuario.victoria(enemy.nombre, enemy.nivel, oro);
+					darExp(enemy.nivel);
+					darOro(oro);			
 				}								
 			}else{ // Si es el turno del NPC				
 				if (lanzarDados()<=objetivoPj){ // Si el resultado es exitoso (menor o igual que el objetivo)
@@ -215,5 +217,10 @@ public class Narrador {
 			flvl = nextLvlxp;
 			gestorAplicacion.pjs.Player.player.nivel++;
 		}
+	}
+
+	public static void darOro(int oro){
+		
+		gestorAplicacion.pjs.Player.player.wallet += oro;
 	}
 }
