@@ -1,16 +1,13 @@
 package gestorAplicacion.Loadout;
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class Inventario {
-	int n;
-	int q;
-	int z;
-	Armadura[] armaduras = new Armadura[n]; 
-	Arma[] armas = new Arma[q]; 
 	
-///////////////////////////////////////////////// or:
+	public static List<Arma>     listaArmas      = new ArrayList<Arma>();
+
+	public static List<Armadura> listaArmaduras  = new ArrayList<Armadura>();
 	
-	Object[] objetos = new Object[z];
-	
-	
+	public static List<Pocion>   listaPociones   = new ArrayList<Pocion>();
+		
 }
