@@ -12,6 +12,7 @@ public class Player extends gestorAplicacion.pjs.NPC { //player debe ser hija de
 	public static  gestorAplicacion.Loadout.Armadura armadura;
 	public static gestorAplicacion.Loadout.Arma arma;
 	public int aHP,aAC, aFUE, aDES, aINT, aCON, aCAR, aSAB;
+	public int wallet;
 	 
 	public Player(String Default) { // Jugador por defecto
 		this.nombre = "Freud Baggins";
@@ -27,6 +28,7 @@ public class Player extends gestorAplicacion.pjs.NPC { //player debe ser hija de
 		this.INT = 12;		
 		this.SAB = 12;
 		this.CAR = 12;
+		this.wallet = 0; //agrego a la clase por defecto la billetera para la tienda, implementar en general
 		Player.armadura = new gestorAplicacion.Loadout.Armadura("Escudo de cuero", "Escudo pequeño hecho de cuero", 3, 300);
 		Player.arma = new gestorAplicacion.Loadout.Arma("Espada corta", "Pequeña espada corta forjada por herreros locales",4,1);
 		this.descripcion = "Humano del Este adiestrado en el arte de la guerra.";
