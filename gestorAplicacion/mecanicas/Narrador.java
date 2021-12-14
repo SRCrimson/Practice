@@ -132,7 +132,7 @@ public class Narrador {
 		}
 		
 		int objetivoPj = 10 + enemy.nivel + gestorAplicacion.pjs.Player.player.AC - Armadura.getDefensa();  // Cuando el objetivo del ataque es el NPC
-		int objetivoRival = 10 + gestorAplicacion.pjs.Player.player.nivel + enemy.AC; // Cuando el objetivo del ataque es el PJ
+		int objetivoRival = 14 + gestorAplicacion.pjs.Player.player.nivel + enemy.AC; // Cuando el objetivo del ataque es el PJ
 		Scanner scannerCombate = new Scanner(System.in); // Esto no puede llamarse dentro del loop
 		while(gestorAplicacion.pjs.Player.player.HP >= 0 && enemy.HP >= 0){
 	
@@ -143,10 +143,16 @@ public class Narrador {
 				
 				if (comando.equals("atacar")){
 					uiMain.InterfazUsuario.comandoAttack();
-					if (lanzarDados()<=objetivoRival){ // Si el resultado es exitoso (menor o igual que el objetivo)	
-						int dano = gestorAplicacion.Loadout.Arma.getDano();
+					if (lanzarDados()<=objetivoRival){ // Si el resultado es exitoso (menor o igual que el objetivo)
+                                            int dano = gestorAplicacion.Loadout.Arma.getDano();
+                                            if(gestorAplicacion.pjs.Player.getClase().getCritHitChance() >= (Math.random()*10)){
+                                                int crit = dano*2;
+                                                uiMain.InterfazUsuario.golpeCritico(crit);
+                                                enemy.HP -= crit;
+                                            }else{
 						uiMain.InterfazUsuario.ataqueExitoso(dano);
 						enemy.HP -= gestorAplicacion.Loadout.Arma.getDano();
+                                            }
 					}else{
 						uiMain.InterfazUsuario.ataqueFallido(gestorAplicacion.pjs.Player.player.nombre);
 					}
@@ -180,8 +186,12 @@ public class Narrador {
 			}else{ // Si es el turno del NPC				
 				if (lanzarDados()<=objetivoPj){ // Si el resultado es exitoso (menor o igual que el objetivo)
 					int dano = enemy.dano;
+                                        if(gestorAplicacion.pjs.Player.getClase().getHitBlock()>= (Math.random()*10)){
+                                            uiMain.InterfazUsuario.ataqueBloqueado();
+                                        }else{
 					uiMain.InterfazUsuario.ataqueRivalExito(dano, enemy.nombre);
 					gestorAplicacion.pjs.Player.player.HP -= enemy.dano;
+                                        }
 					if (gestorAplicacion.pjs.Player.player.HP < 0){
 						uiMain.InterfazUsuario.derrota(enemy.nombre);
 						escenaActual = 0;
