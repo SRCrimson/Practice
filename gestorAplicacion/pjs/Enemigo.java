@@ -9,7 +9,7 @@ public class Enemigo extends NPC{
         this.nombre = "goblin";
         this.HP = 18;
         this.nivel = 1;
-        this.dano = 1;
+        this.dano = 6;
         this.FUE = 12;
 		this.DES = 110;
 		this.CON = 12;

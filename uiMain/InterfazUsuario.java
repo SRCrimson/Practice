@@ -32,13 +32,13 @@ public class InterfazUsuario {
 	
 	public static void inicio() {
 	gestorAplicacion.pjs.Player.player.arquetipo();
-	System.out.println(Colores.ROJO);
-	System.out.println("   ___|         |         |                                                   |              \\  |               |            \r\n"
+	
+	System.err.println("   ___|         |         |                                                   |              \\  |               |            \r\n"
 			+ "  |       _` |  |   _` |  __ \\    _ \\ _  /   _ \\    __|       _ \\  __ \\       |   _` |        \\ |   _` |   __|  __ \\    _ \\  \r\n"
 			+ "  |      (   |  |  (   |  |   |  (   |  /   (   | \\__ \\       __/  |   |      |  (   |      |\\  |  (   |  (     | | |  (   | \r\n"
 			+ " \\____| \\__,_| _| \\__,_| _.__/  \\___/ ___| \\___/  ____/     \\___| _|  _|     _| \\__,_|     _| \\_| \\__,_| \\___| _| |_| \\___/\n");
-	System.out.println("                                                        Creado por John Mesa, Eider Pena, Santiago Rivera, Brayan Caballero");
-	System.out.println(Colores.RESET);
+	System.err.println("                                                        Creado por John Mesa, Eider Pena, Santiago Rivera, Brayan Caballero\n");
+	
 	String[] tutorial = new String[] {"\u250C\u2500\u2500\u2500 ¿CÓMO JUGAR? \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510",
 	"\u2502 Este relato contiene muchas elecciones: las hay sencillas, sensatas, temerarias... e incluso muy peligrosas.               \u2502\n"+ 
 	"\u2502 Estas elecciones las encontrarás siempre al final de cada narración.                                                       \u2502\n"+
@@ -46,6 +46,8 @@ public class InterfazUsuario {
 	"\u2502 Puedes realizar otras acciones usando comandos especiales. Puedes ver una lista de comandos escribiendo: help              \u2502",
 	"\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518"
 	};
+	
+	
 	for (String s: tutorial){
 		System.out.println(s);
 	}
@@ -72,10 +74,10 @@ public class InterfazUsuario {
 				case 1: gestorAplicacion.mecanicas.Narrador.iniciarNuevo();salirMenu=true;break;
 				case 2: gestorAplicacion.mecanicas.Narrador.cargarJuego();salirMenu=true;break;
 				case 3: comandoExit();System.exit(0);
-				default:System.out.println(Colores.ROJO+"Elige una opción válida"+Colores.RESET);
+				default:System.err.println("\uD83D\uDFE6 Elige una opción válida");
 			}		
 		}catch(InputMismatchException e){
-			System.out.println(Colores.ROJO+"Elige una opción válida"+Colores.RESET);
+			System.err.println("\uD83D\uDFE6 Elige una opción válida");
 			teclado.next();
 		}
 	}
@@ -91,7 +93,7 @@ public class InterfazUsuario {
 		escena0.idEscena = 0;
 		
 		escena0.narrativa = ""+
-		"\n"+Colores.BLANCO_BOLD+"Capítulo 1 - Oculto tras las sombras"+Colores.RESET+"\n\nLa zozobra se había instalado en los habitantes del lejano poblado de Campoverde. Atrás habían quedado los días donde los párvulos retoños de Campoverde\n"+
+		"\n \uD83D\uDF82 \uD83D\uDF82 \uD83D\uDF82 Capítulo 1 - Oculto tras las sombras"+"\n\nLa zozobra se había instalado en los habitantes del lejano poblado de Campoverde. Atrás habían quedado los días donde los párvulos retoños de Campoverde\n"+
 		"jugaban a las escondidillas en los frondosos bosques limítrofes. Una invisible amenaza se arrastraba por la región, las desapariciones y asesinatos cada\n"+
 		"vez eran más frecuentes y el alcalde Dientemayor había reunido cuadrillas de exploración para contrarrestar la amenaza oculta tras las sombras.\n\n"+
 		"Has decidido no quedarte de brazos cruzados, pues al no haber cumplido aún la mayoría de edad, los adultos del lugar decidieron que no podrías ser parte\n"+
@@ -181,9 +183,9 @@ public class InterfazUsuario {
 		String separador = str2.repeat(5+Math.max(gestorAplicacion.mecanicas.Narrador.getOpciones()[0].toString().length(),gestorAplicacion.mecanicas.Narrador.getOpciones()[2].toString().length()));
 		System.out.println(marco);
 		
-		System.out.println(Colores.AZUL+" a) "+Colores.RESET + gestorAplicacion.mecanicas.Narrador.getOpciones()[0]);
+		System.out.println(" a) "+gestorAplicacion.mecanicas.Narrador.getOpciones()[0]);
 		System.out.println(separador);
-		System.out.println(Colores.AZUL+" b) "+Colores.RESET + gestorAplicacion.mecanicas.Narrador.getOpciones()[2]);		
+		System.out.println(" b) "+ gestorAplicacion.mecanicas.Narrador.getOpciones()[2]);		
 		System.out.print(marco);		
 		promptPlayer();
 
@@ -193,7 +195,7 @@ public class InterfazUsuario {
 	public static void promptPlayer() {
 		
 		Scanner scanner = new Scanner(System.in);		
-		System.out.print(Colores.AZUL+"\n\nElige una opción: "+Colores.RESET);
+		System.out.print("\n\nElige una opción: ");
 		String seleccion = scanner.nextLine();
 		System.out.print("\n");
 		
@@ -202,16 +204,16 @@ public class InterfazUsuario {
 	}
 	
 	public static void opcionInvalida() {
-		System.out.println(Colores.AMARILLO+"Elige una opción válida."+Colores.RESET);
+		System.err.println("\uD83D\uDFE6 Elige una opción válida.");
 	}
 	
 	public static void comandoHelp() {
-		System.out.println(Colores.BLANCO_BOLD+"\nCOMANDOS\n\n"+Colores.RESET+
+		System.out.println("\nCOMANDOS\n\n"+
 				"help --- Mostrar los comandos disponibles\n"+
 				"save --- Guardar la partida en el estado actual\n"+
 				"exit --- Salir del juego\n"+
 				"hoja --- Muestra la hoja de personaje\n"+
-				Colores.BLANCO_BOLD+"\nCOMANDOS EN COMBATE\n\n"+Colores.RESET+
+				"\nCOMANDOS EN COMBATE\n\n"+
 				"atacar --- Atacar con el arma equipada\n"+
 				"pocion --- Usar poción de curación\n"+
 				"escapar --- Intentar escapar del combate actual, 30% de probabilidad"
@@ -242,15 +244,15 @@ public class InterfazUsuario {
 	}
 
 	public static void enterCombate(String enemigo){
-		System.out.println(Colores.AMARILLO+"¡¡¡Un " + enemigo + " salvaje apareció!!!.\n"+Colores.RESET);
+		System.out.println("¡¡¡Un " + enemigo + " salvaje apareció!!! \uD83D\uDE08 \n");
 	}
 
 	public static void turnoCombate(){		
-		System.out.print(Colores.AZUL+"\n¿Qué deseas hacer?: "+Colores.RESET);
+		System.out.print("\n¿Qué deseas hacer?: ");
 	}
 
 	public static void comandoAttack(){
-		System.out.println("Has atacado");
+		System.out.println("Has atacado \u2694");
 	}
 
 	public static void comandoPotion(){
@@ -262,33 +264,33 @@ public class InterfazUsuario {
 	}
 
 	public static void comandoEquivocado(){
-		System.out.println(Colores.AMARILLO+"Comando equivocado"+Colores.RESET);
+		System.err.println("Comando equivocado");
 	}
 
 	public static void ataqueExitoso(int dano){
-		System.out.println("Haces " + Colores.AZUL + dano + Colores.RESET+" de daño al enemigo.");
+		System.out.println("Haces " + dano + " de daño al enemigo. \u2764");
 	}
 	public static void ataqueFallido(String atacante){
-		System.out.println(atacante + " falló su ataque");
+		System.out.println(atacante + " falló su ataque. \uD83D\uDE02");
 	}
 	
 	public static void escapeExitoso(){
-		System.out.println("Logras escapar de la batalla");
+		System.out.println("Logras escapar de la batalla \uD83D\uDE06");
 	}
 	
 	public static void escapeFallido(){
-		System.out.println("Fallas en tu intento de huir ...miserablemente");
+		System.out.println("Fallas en tu intento de huir ...miserablemente. \uD83D\uDE0C");
 	}
 
 	public static void ataqueRivalExito(int dano, String nombre){
-		System.out.println("El " + nombre + " enemigo hizo " +Colores.ROJO +dano+ Colores.RESET+ " de daño\nAhora tienes "+ gestorAplicacion.pjs.Player.player.HP + " de vida.");
+		System.err.println("El " + nombre + " enemigo atacó. \uD83D\uDDE1 \nEl " + nombre + " te hizo "  + dano +  " de daño\nAhora tienes "+ gestorAplicacion.pjs.Player.player.HP + " de vida.");
 	}
 
 	public static void victoria(String derrotado, int exp){
-		System.out.println(Colores.VERDE+"Has derrotado a " + derrotado + " y has obtenido " + exp*200 + " de experiencia"+Colores.RESET);
+		System.out.println("Has derrotado a " + derrotado + " y has obtenido " + exp*200 + " de experiencia. \uD83D\uDE03 ");
 	}
 
 	public static void derrota(String victorioso){
-		System.out.println(Colores.ROJO+"Has sido derrotado por " + victorioso+Colores.RESET);
+		System.err.println("Has sido derrotado por " + victorioso + " \uD83D\uDE22 \uD83D\uDE22 \uD83D\uDE22 \n\n");
 	}
 }

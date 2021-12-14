@@ -4,7 +4,8 @@ public enum Colores {
 
         BLANCO("\033[0;37m"),
         AZUL("\033[0;34m"),
-        ROJO("\033[0;31m"),
+        //ROJO("\033[0;31m"),
+        ROJO("\033[31m"),
         VERDE("\033[0;32m"),
         AMARILLO("\033[0;33m"),   
         BLANCO_UNDERLINED("\033[4;37m"),

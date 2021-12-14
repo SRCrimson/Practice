@@ -64,7 +64,7 @@ public class Narrador {
 	}
 	
 	public static void sets() {
-		escenaActual = (int) uiMain.InterfazUsuario.allEscenas.get(escenaActual).opciones[intSeleccion]; // Casting (conversi�n de tipos de datos)		
+		escenaActual = (int) uiMain.InterfazUsuario.allEscenas.get(escenaActual).opciones[intSeleccion]; // Casting (conversi���n de tipos de datos)		
 		if (uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
 			uiMain.InterfazUsuario.enterCombate(uiMain.InterfazUsuario.allEscenas.get(escenaActual).enemigo);
 			combate(uiMain.InterfazUsuario.allEscenas.get(escenaActual).enemigo);
@@ -94,27 +94,27 @@ public class Narrador {
 	public static void comandos(String comando) {
 		if (comando.equals("help")) {
 			uiMain.InterfazUsuario.comandoHelp();
-			/*if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
+			if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
 				uiMain.InterfazUsuario.narracion();			
-			}*/
-			uiMain.InterfazUsuario.narracion();			
+			}
+			//uiMain.InterfazUsuario.narracion();			
 		}else if(comando.equals("exit")) {
 			uiMain.InterfazUsuario.comandoExit();
 			System.exit(0);
 		}else if(comando.equals("hoja")){
 			uiMain.InterfazUsuario.hojaPJ();
-			/*if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
+			if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
 				uiMain.InterfazUsuario.narracion();			
-			}*/
-			uiMain.InterfazUsuario.narracion();
+			}
+			//uiMain.InterfazUsuario.narracion();
 		}else if(comando.equals("save")) {
 			// GUARDAR PARTIDA
 		}else{
 			uiMain.InterfazUsuario.comandoEquivocado();
-			/*if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
+			if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
 				uiMain.InterfazUsuario.narracion();
-			}*/
-			uiMain.InterfazUsuario.narracion();			
+			}
+			//uiMain.InterfazUsuario.narracion();			
 		}			
 	}
 	
@@ -195,15 +195,15 @@ public class Narrador {
 				playerTurn = true;
 			}
 		}		
-		/* �C�mo se desarrolla un combate? - Bosquejo
-		 * Se determinan los involucrados en el combate. Siempre ser� el PJ vs una herencia de NPC.
-		 * Se decide qui�n tiene el primer turno seg�n quien tenga un puntaje de destreza mayor entre los contendientes
-		 * En el turno del jugador, este podr�: Atacar con arma principal, atacar con hechizos (habilidad especial), usar objeto del inventario.
-		 * En el turno del NPC este atacar� y usar� una habilidad especial cada x turnos
+		/* ���C���mo se desarrolla un combate? - Bosquejo
+		 * Se determinan los involucrados en el combate. Siempre ser��� el PJ vs una herencia de NPC.
+		 * Se decide qui���n tiene el primer turno seg���n quien tenga un puntaje de destreza mayor entre los contendientes
+		 * En el turno del jugador, este podr���: Atacar con arma principal, atacar con hechizos (habilidad especial), usar objeto del inventario.
+		 * En el turno del NPC este atacar��� y usar��� una habilidad especial cada x turnos
 		 * - Cuando se ataca se determina si el golpe es exitoso o no de la siguiente manera: objetivo = 10 + nivel del atacante + clase de armadura del atacado - armadura del atacado, luego se lanza 1 dado de 20 caras, 
-		 *   si el resultado es menor o igual al n�mero obtenido de la sumatoria anterior, el golpe es exitoso y se procede a determinar el da�o realizado.
-		 * - El da�o realizado es igual al da�o del arma
-		 * - Luego de calcular el da�o realizado se termina el turno y comienza el del rival
+		 *   si el resultado es menor o igual al n���mero obtenido de la sumatoria anterior, el golpe es exitoso y se procede a determinar el da���o realizado.
+		 * - El da���o realizado es igual al da���o del arma
+		 * - Luego de calcular el da���o realizado se termina el turno y comienza el del rival
 		 * - El combate termina cuando uno de los combatientes obtiene HP menor o igual a 0. 
 		 * */
 	}
