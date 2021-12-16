@@ -96,7 +96,7 @@ public class InterfazUsuario {
 	
                 do{
 		
-                    System.out.println("                                                   1 - Crear Jugador");
+                    System.out.println("                                                   1 - Crear Personaje");
                     System.out.println("                                                   2 - Partida rapida");
                     System.out.println("                                                   3 - Atras");
                     System.out.print(">> ");	
@@ -304,7 +304,7 @@ public class InterfazUsuario {
 				"save --- Guardar la partida en el estado actual\n"+
 				"exit --- Salir del juego\n"+
 				"hoja --- Muestra la hoja de personaje\n"+
-				"inventario --- Muestra los objetos del personaje en inventario\n"+
+				"inv  --- Muestra los objetos del personaje en inventario\n"+
 				"tienda --- Muestra los objetos disponibles para comprar\n" + 
 				"\nCOMANDOS EN COMBATE\n\n"+
 				"atacar  --- Atacar con el arma equipada\n"+
