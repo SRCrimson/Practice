@@ -41,7 +41,7 @@ public class Player extends gestorAplicacion.pjs.NPC implements Serializable { /
 		Player.armadura = new gestorAplicacion.Loadout.Armadura("Escudo de cuero", "Escudo pequeño hecho de cuero", 3, 300);
 		Inventario.listaArmaduras.add(Player.armadura);
 		Player.arma = new gestorAplicacion.Loadout.Arma("Espada corta", "Pequeña espada corta forjada por herreros locales",4,1);
-		Inventario.listaArmas.add(Player.arma);
+		Inventario.listaArmasGuerrero.add(Player.arma);
 		this.descripcion = "Humano del Este adiestrado en el arte de la guerra.";
 
 	}

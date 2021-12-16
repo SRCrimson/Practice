@@ -16,8 +16,8 @@ public class Arma{
 	}
 
 	public static int getDano() {  //Class Player{
-		return dano;		//	int fuerza;
-	}						//	Arma arma1 = new Arma();
-							//	fuerza += arma1.getda�o
+		return dano;					//	int fuerza;
+	}									//	Arma arma1 = new Arma();
+										//	fuerza += arma1.getda�o
 }
 

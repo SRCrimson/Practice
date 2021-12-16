@@ -18,7 +18,7 @@ public class Narrador implements Serializable{
 	
 	
 	public static int escenaActual = 0;
-	public final static String[] comandos = new String[] {"help", "save", "exit", "hoja"};	
+	public final static String[] comandos = new String[] {"help", "save", "exit", "hoja", "inv", "tienda"};	
 	
 	public static int intSeleccion;
 
@@ -127,6 +127,16 @@ public class Narrador implements Serializable{
 			baseDatos.persistencia.escribirFichero();
 			uiMain.InterfazUsuario.juegoGuardado();
 			uiMain.InterfazUsuario.narracion();
+		}else if (comando.equals("inv")) {
+			uiMain.InterfazUsuario.abrirInventario();
+			if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
+				uiMain.InterfazUsuario.narracion();	
+			}
+		}else if (comando.equals("tienda")) {
+			uiMain.InterfazUsuario.irATienda();
+			if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){
+				uiMain.InterfazUsuario.narracion();
+			}
 		}else{
 			uiMain.InterfazUsuario.comandoEquivocado();
 			if (!uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate){

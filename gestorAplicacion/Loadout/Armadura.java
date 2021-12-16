@@ -4,7 +4,7 @@ public class Armadura {
 	public	 String nombre;
 	public	 String descripcion;
 	private	 static int defensa; // Lo hice static
-	public int precio;
+	public int	 precio;
 
 public Armadura(String nombre, String descripcion, int defensa, int precio) {
 	this.nombre      = nombre;

@@ -1,8 +1,8 @@
 package gestorAplicacion.Loadout;
 
 public class Pocion {
-	String nombre;
-	String descripcion; 
+	public String nombre;
+	public String descripcion; 
 	public int curacion;
 	public int precio;
 	
@@ -12,6 +12,11 @@ public class Pocion {
 		this.curacion = curacion;
 		this.precio = precio;
 	}
+
+	public int getCuracion() {
+		return curacion;
+	}
+
 }
 
 

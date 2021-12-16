@@ -8,10 +8,13 @@ import javax.sound.midi.SysexMessage;
 
 import java.lang.*;
 
-
+import gestorAplicacion.pjs.Clase;
 import gestorAplicacion.pjs.Player;
 import gestorAplicacion.Loadout.Arma;
 import gestorAplicacion.Loadout.Armadura;
+import gestorAplicacion.Loadout.Inventario;
+import gestorAplicacion.Loadout.Pocion;
+import gestorAplicacion.Loadout.Tienda;
 
 
 
@@ -407,5 +410,107 @@ public class InterfazUsuario {
 	public static void curacion(int heal){
 		System.out.println("te has curado " + heal);
 	}
+	public static void abrirInventario() {
+		int cont = 1;
+		if (Player.clase == Clase.GUERRERO) {
+			if (Inventario.listaArmasGuerrero.size() > 0) {
+			System.out.println("------- ARMAS --------");
+			for (Arma cadaArma:Inventario.listaArmasGuerrero) {
+				System.out.println(cont + ")" + cadaArma.nombre + ": " + cadaArma.descripcion);
+				cont++;
+				}
+			}	
+		}if (Player.clase == Clase.ARQUERO) {
+			if (Inventario.listaArmasArquero.size() > 0) {
+			System.out.println("------- ARMAS --------");
+			for (Arma cadaArma:Inventario.listaArmasArquero) {
+				System.out.println(cont + ")" + cadaArma.nombre + ": " + cadaArma.descripcion);
+				cont++;
+				}
+			}	
+		}if (Player.clase == Clase.MAGO) {
+			if (Inventario.listaArmasMago.size() > 0) {
+			System.out.println("------- ARMAS --------");
+			for (Arma cadaArma:Inventario.listaArmasMago) {
+				System.out.println(cont + ")" + cadaArma.nombre + ": " + cadaArma.descripcion);
+				cont++;
+				}
+			}	
+		}else if (Inventario.listaArmaduras.size() > 0) {
+			cont = 1;
+			System.out.println("------- ARMADURAS --------");
+		    for (Armadura cadaArmadura:Inventario.listaArmaduras) {
+		    	System.out.println(cont + ")" + cadaArmadura.nombre + ": " + cadaArmadura.descripcion);
+		    	cont++;
+		    }
+		}else if (Inventario.listaPociones.size() > 0) {
+			cont = 1;
+			System.out.println("------- POCIONES --------");
+		    for (Pocion cadaPocion:Inventario.listaPociones) {
+		        System.out.println(cont + ")" + cadaPocion + "nombre\n" + "descripcion\n" );
+		        cont++;
+		    }
+		}	
+	}
+	public static void irATienda() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Escriba el numero del tipo de articulo que desea comprar:\n" + "1) Armas\n" + "2) Armaduras\n" + "3) Pociones");
+	
+		char tipo = input.next().charAt(0);
+		int cont  = 1;
+		Tienda.listaArmasGuerreroTienda.clear();
+		Tienda.listaArmadurasTienda.clear();
+		Tienda.listaPocionesTienda.clear();
+		Tienda.AñadirGuerrero ();
+		Tienda.AñadirArmaduras();
+		Tienda.AñadirPociones ();
 
+			if ((tipo == '1') && (Player.clase == Clase.GUERRERO)) {
+				System.out.println("Ingrese el numero del arma que desea comprar:");
+				for (Arma listarArmaGuerrero:Tienda.listaArmasGuerreroTienda) {
+					System.out.println(cont + ")" + listarArmaGuerrero.nombre + ": " + listarArmaGuerrero.descripcion);
+					cont++;
+				}char choice = input.next().charAt(0);	
+				Tienda.ComprarArmaGuerrero(choice, Player.player.wallet);
+			}
+			
+			if ((tipo == '1') && (Player.clase == Clase.ARQUERO)) {
+				System.out.println("Ingrese el numero del arma que desea comprar:");
+				for (Arma listarArmaArquero:Tienda.listaArmasArqueroTienda) {
+					System.out.println(cont + ")" + listarArmaArquero.nombre + ": " + listarArmaArquero.descripcion);
+					cont++;
+				}char choice = input.next().charAt(0);	
+				Tienda.ComprarArmaGuerrero(choice, Player.player.wallet);
+			}
+			
+			if ((tipo == '1') && (Player.clase == Clase.MAGO)) {
+				System.out.println("Ingrese el numero del arma que desea comprar:");
+				for (Arma listarArmaMago:Tienda.listaArmasMagoTienda) {
+					System.out.println(cont + ")" + listarArmaMago.nombre + ": " + listarArmaMago.descripcion);
+					cont++;
+				}char choice = input.next().charAt(0);	
+				Tienda.ComprarArmaGuerrero(choice, Player.player.wallet);
+			}
+			
+			else if (tipo == '2') {
+				System.out.println("Ingrese el numero del armadura que desea comprar:");
+				for (Armadura listarArmaduras:Tienda.listaArmadurasTienda) {
+					System.out.println(cont + ")" + listarArmaduras.nombre + ": " + listarArmaduras.descripcion);
+					cont++;
+			   }char choice = input.next().charAt(0);	
+				Tienda.ComprarArmadura(choice, Player.player.wallet);
+			}
+			
+			else if (tipo == '3') {
+				System.out.println("Ingrese el numero de la pocion que desea comprar:");
+				for (Pocion listarPociones:Tienda.listaPocionesTienda) {
+					System.out.println(cont + ")" + listarPociones.nombre + ": " + listarPociones.descripcion);
+					cont++;
+			   }char choice = input.next().charAt(0);	
+				Tienda.ComprarPocion(choice, Player.player.wallet);
+			}
+			else {
+				System.out.println("Opcion invalida");
+			}
+	}
 }
