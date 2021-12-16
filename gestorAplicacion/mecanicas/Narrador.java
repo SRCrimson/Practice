@@ -54,7 +54,7 @@ public class Narrador implements Serializable{
 	public static void cargarJuego(){
 		baseDatos.persistencia.leerFichero();
 		iniciarNuevo();
-		System.out.println("Acá se debe cargar el juego"); // Eliminar cuando se cree el mecanismo de carga
+		//System.out.println("Acá se debe cargar el juego"); // Eliminar cuando se cree el mecanismo de carga
 	}
 	
 	public static void setEscena(String seleccion) {

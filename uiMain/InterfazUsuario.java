@@ -127,7 +127,7 @@ public class InterfazUsuario {
             int clase = dato.nextInt();
             
             switch(clase){
-                case 1: Player Player = new Player(nombre, edad, gestorAplicacion.pjs.Clase.GUERRERO);
+                case 1: gestorAplicacion.pjs.Player.player = new Player(nombre, edad, gestorAplicacion.pjs.Clase.GUERRERO);
                     System.out.println("Bienvenido " + nombre);
                 uiMain.InterfazUsuario.hojaPJ(); break;
             }
