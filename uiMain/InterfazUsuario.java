@@ -329,7 +329,8 @@ public class InterfazUsuario {
 		"CAR: " + gestorAplicacion.pjs.Player.player.CAR+"\n"+
 		"Arma equipada: " + Player.arma.nombre+" (+"+Arma.dano+")\n"+
 		"Escudo equipado: " + Player.armadura.nombre+" (+"+Armadura.getDefensa()+")\n"+
-		"Descripción: " + gestorAplicacion.pjs.Player.player.descripcion+"\n"
+		"Descripción: " + gestorAplicacion.pjs.Player.player.descripcion+"\n"+
+		"Wallet: "+ gestorAplicacion.pjs.Player.player.wallet+"\n"
 		);
 	}
 	
