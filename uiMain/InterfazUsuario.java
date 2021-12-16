@@ -331,6 +331,7 @@ public class InterfazUsuario {
 		"Escudo equipado: " + Player.armadura.nombre+" (+"+Armadura.getDefensa()+")\n"+
 		"Descripción: " + gestorAplicacion.pjs.Player.player.descripcion+"\n"+
 		"Wallet: "+ gestorAplicacion.pjs.Player.player.wallet+"\n"
+		
 		);
 	}
 	
@@ -437,18 +438,18 @@ public class InterfazUsuario {
 				cont++;
 				}
 			}	
-		}else if (Inventario.listaArmaduras.size() > 0) {
+		}if (Inventario.listaArmaduras.size() > 0) {
 			cont = 1;
 			System.out.println("------- ARMADURAS --------");
 		    for (Armadura cadaArmadura:Inventario.listaArmaduras) {
 		    	System.out.println(cont + ")" + cadaArmadura.nombre + ": " + cadaArmadura.descripcion);
 		    	cont++;
 		    }
-		}else if (Inventario.listaPociones.size() > 0) {
+		}if (Inventario.listaPociones.size() > 0) {
 			cont = 1;
 			System.out.println("------- POCIONES --------");
 		    for (Pocion cadaPocion:Inventario.listaPociones) {
-		        System.out.println(cont + ")" + cadaPocion + "nombre\n" + "descripcion\n" );
+		        System.out.println(cont + ")" + cadaPocion.nombre + ": " + cadaPocion.descripcion);
 		        cont++;
 		    }
 		}	
