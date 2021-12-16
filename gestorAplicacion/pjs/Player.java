@@ -12,6 +12,8 @@ public class Player extends gestorAplicacion.pjs.NPC implements Serializable { /
 	public int xp;
 	//public int movimientoBase; // No es necesario
 	public int HP;
+        static int min = 1;  
+	static int max = 20;
 	public String descripcion;
     public static Clase clase;
 	public static  gestorAplicacion.Loadout.Armadura armadura;
@@ -43,6 +45,18 @@ public class Player extends gestorAplicacion.pjs.NPC implements Serializable { /
 		this.descripcion = "Humano del Este adiestrado en el arte de la guerra.";
 
 	}
+        
+        public Player (String nombre, int edad, Clase clase){
+            super(nombre, edad, clase, 1);
+            this.FUE += clase.getFuerza() + gestorAplicacion.mecanicas.Narrador.lanzarDados();
+            this.DES += clase.getDestreza() + gestorAplicacion.mecanicas.Narrador.lanzarDados();
+            this.CON += clase.getConstitucion() + gestorAplicacion.mecanicas.Narrador.lanzarDados();
+            this.CAR += clase.getCarisma() + gestorAplicacion.mecanicas.Narrador.lanzarDados();
+            this.INT += clase.getInteligencia() + gestorAplicacion.mecanicas.Narrador.lanzarDados();
+            this.SAB += clase.getSabiduria() + gestorAplicacion.mecanicas.Narrador.lanzarDados();
+            
+            
+        }
 
 	public void arquetipo(){
 		this.aHP = this.HP;
