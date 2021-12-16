@@ -127,8 +127,9 @@ public class InterfazUsuario {
             int clase = dato.nextInt();
             
             switch(clase){
-                case 1: gestorAplicacion.pjs.Player.player = new Player(nombre, edad, gestorAplicacion.pjs.Clase.GUERRERO);
+                case 1: gestorAplicacion.pjs.Player.player = new Player(nombre, edad);
                     System.out.println("Bienvenido " + nombre);
+					Player.clase = gestorAplicacion.pjs.Clase.GUERRERO;
                 uiMain.InterfazUsuario.hojaPJ();
                 try{
                 Thread.sleep(5*1000);
@@ -139,8 +140,9 @@ public class InterfazUsuario {
                 
                 break;
                 
-                case 2: gestorAplicacion.pjs.Player.player = new Player(nombre, edad, gestorAplicacion.pjs.Clase.ARQUERO);
+                case 2: gestorAplicacion.pjs.Player.player = new Player(nombre, edad);
                     System.out.println("Bienvenido " + nombre);
+					Player.clase = gestorAplicacion.pjs.Clase.ARQUERO;
                 uiMain.InterfazUsuario.hojaPJ();    
                 try{
                 Thread.sleep(5*1000);
@@ -151,8 +153,9 @@ public class InterfazUsuario {
                 
                 break;
                 
-                case 3: gestorAplicacion.pjs.Player.player = new Player(nombre, edad, gestorAplicacion.pjs.Clase.MAGO);
+                case 3: gestorAplicacion.pjs.Player.player = new Player(nombre, edad);
                     System.out.println("Bienvenido " + nombre);
+					Player.clase = gestorAplicacion.pjs.Clase.MAGO;
                 uiMain.InterfazUsuario.hojaPJ();    
                 try{
                 Thread.sleep(5*1000);
@@ -398,6 +401,10 @@ public class InterfazUsuario {
 
 	public static void juegoGuardado(){
 		System.out.println("¡Juego guardado con éxito!");
+	}
+
+	public static void curacion(int heal){
+		System.out.println("te has curado " + heal);
 	}
 
 }

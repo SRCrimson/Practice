@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 public enum Clase implements Serializable{
     
-    GUERRERO(5,1, 1, 3, 1, 1), ARQUERO(1,5,1,1,3,1), MAGO(1,1,5,1,1,3);
+    GUERRERO(12,1, 1, 8, 1, 1), ARQUERO(1,12,1,1,8,1), MAGO(1,1,12,1,1,8);
     private int fuerza, destreza, inteligencia, constitucion, carisma, sabiduria;
     
     private static Double hitBlock=3.5;         //probabilidad de bloquear golpe, es la misma para todas las clases excpeto GUERRERO, que tiene un bono de 20% de probabilidad
     private static Double critHitChance = 3.5;  //Probabilidad de golpe critico, solo cambia en la clase Arquero que tiene un 25%
-    
+    private static Double hpRecovery = 3.5; //Probabilidad de recuperar salud cuando asesta un golpe crítico
     //LOS DOS ANTERIORES ATRIBUTOS QUEDAN PENDIENTES A REVISION Y APROBACION POR EL GRUPO
     
     private String nombre;
@@ -50,7 +50,7 @@ public enum Clase implements Serializable{
                 Clase.setCritHitChance(5.5);
             
             case MAGO:
-                
+                Clase.setHpRecovery(5.0);
         }
                 
     }
@@ -87,6 +87,10 @@ public enum Clase implements Serializable{
         Clase.critHitChance = critHitChance;
     }
 
+    public static void setHpRecovery(Double hpRecovery){
+        Clase.hpRecovery = hpRecovery;
+    }
+
     public static Double getHitBlock() {
         return hitBlock;
     }
@@ -95,6 +99,9 @@ public enum Clase implements Serializable{
         return critHitChance;
     }
     
+    public static Double getHpRecovery() {
+        return hpRecovery;
+    }
     
 
     

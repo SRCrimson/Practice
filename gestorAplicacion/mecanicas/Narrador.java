@@ -162,9 +162,18 @@ public class Narrador implements Serializable{
 				if (comando.equals("atacar")){
 					uiMain.InterfazUsuario.comandoAttack();
 					if (lanzarDados()<=objetivoRival){ // Si el resultado es exitoso (menor o igual que el objetivo)
-                                            int dano = gestorAplicacion.Loadout.Arma.getDano();
+                                            int dano = gestorAplicacion.Loadout.Arma.getDano();											
                                             int fue  = (gestorAplicacion.pjs.Player.player.FUE/5); //aumenta para el daño en + 1 cada 5 puntos de Fuerza del personaje
-                                            if(gestorAplicacion.pjs.Player.getClase().getCritHitChance() >= (Math.random()*10)){
+											if (gestorAplicacion.pjs.Player.getClase() == gestorAplicacion.pjs.Clase.MAGO && gestorAplicacion.pjs.Player.getClase().getHpRecovery() >= (Math.random()*10)){
+												int heal = (int) (dano + gestorAplicacion.pjs.Player.player.INT*0.2);
+												if (gestorAplicacion.pjs.Player.player.HP + heal <= gestorAplicacion.pjs.Player.player.aHP) {
+													gestorAplicacion.pjs.Player.player.HP += heal;
+												}else{
+													gestorAplicacion.pjs.Player.player.HP = gestorAplicacion.pjs.Player.player.aHP;
+												}
+												uiMain.InterfazUsuario.curacion(heal);
+											}
+                                            else if(gestorAplicacion.pjs.Player.getClase().getCritHitChance() >= (Math.random()*10)){
                                                 int crit = (dano + fue)*2;
                                                 uiMain.InterfazUsuario.golpeCritico(crit);
                                                 enemy.HP -= crit;
