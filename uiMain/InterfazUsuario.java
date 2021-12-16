@@ -215,9 +215,11 @@ public class InterfazUsuario {
 				"save --- Guardar la partida en el estado actual\n"+
 				"exit --- Salir del juego\n"+
 				"hoja --- Muestra la hoja de personaje\n"+
+				"inventario --- Muestra los objetos del personaje en inventario\n"+
+				"tienda --- Muestra los objetos disponibles para comprar\n" + 
 				"\nCOMANDOS EN COMBATE\n\n"+
-				"atacar --- Atacar con el arma equipada\n"+
-				"pocion --- Usar poción de curación\n"+
+				"atacar  --- Atacar con el arma equipada\n"+
+				"pocion  --- Usar poción de curación\n"+
 				"escapar --- Intentar escapar del combate actual, 30% de probabilidad"
 			);
 	}
@@ -269,8 +271,8 @@ public class InterfazUsuario {
 		System.err.println("Comando equivocado");
 	}
 
-	public static void ataqueExitoso(int dano){
-		System.out.println("Haces " + dano + " de daño al enemigo. \u2764");
+	public static void ataqueExitoso(int dano, int fue){ //agreque el parametro fuerza para el calculo de daño en combate
+		System.out.println("Haces " + (dano + fue) + " de daño al enemigo. \u2764");
 	}
         
         public static void golpeCritico(int dano){
