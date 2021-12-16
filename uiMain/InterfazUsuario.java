@@ -352,7 +352,19 @@ public class InterfazUsuario {
 	}
 
 	public static void comandoPotion(){
-		System.out.println("Te has tomado una poción");
+		if (Inventario.listaPociones.size() > 0) {
+			gestorAplicacion.pjs.Player.player.HP += Inventario.listaPociones.get(0).curacion;
+			System.out.println("Te has tomado una poción");
+			Inventario.listaPociones.remove(0);
+			if (gestorAplicacion.pjs.Player.player.HP >= gestorAplicacion.pjs.Player.player.aHP) {
+				gestorAplicacion.pjs.Player.player.HP = gestorAplicacion.pjs.Player.player.aHP;
+				System.out.println("Tu vida se ha restablecido al maximo!");
+			}
+		}
+		else {
+			System.out.println("No tienes pociones disponibles");
+		}
+		
 	}
 	
 	public static void comandoEscape(){
