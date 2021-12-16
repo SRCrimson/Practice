@@ -473,11 +473,16 @@ public class InterfazUsuario {
 		char tipo = input.next().charAt(0);
 		int cont  = 1;
 		Tienda.listaArmasGuerreroTienda.clear();
+		Tienda.listaArmasArqueroTienda.clear();
+		Tienda.listaArmasMagoTienda.clear();
 		Tienda.listaArmadurasTienda.clear();
 		Tienda.listaPocionesTienda.clear();
 		Tienda.AñadirGuerrero ();
+		Tienda.AñadirArquero();
+		Tienda.AñadirMago();
 		Tienda.AñadirArmaduras();
 		Tienda.AñadirPociones ();
+		
 
 			if ((tipo == '1') && (Player.clase == Clase.GUERRERO)) {
 				System.out.println("Ingrese el numero del arma que desea comprar:");
@@ -494,16 +499,16 @@ public class InterfazUsuario {
 					System.out.println(cont + ")" + listarArmaArquero.nombre + ": " + listarArmaArquero.descripcion);
 					cont++;
 				}char choice = input.next().charAt(0);	
-				Tienda.ComprarArmaGuerrero(choice, Player.player.wallet);
+				Tienda.ComprarArmaArquero(choice, Player.player.wallet);
 			}
 			
-			if ((tipo == '1') && (Player.clase == Clase.MAGO)) {
+			if ((tipo == '1') && (Player.clase == gestorAplicacion.pjs.Clase.MAGO)) {
 				System.out.println("Ingrese el numero del arma que desea comprar:");
 				for (Arma listarArmaMago:Tienda.listaArmasMagoTienda) {
 					System.out.println(cont + ")" + listarArmaMago.nombre + ": " + listarArmaMago.descripcion);
 					cont++;
 				}char choice = input.next().charAt(0);	
-				Tienda.ComprarArmaGuerrero(choice, Player.player.wallet);
+				Tienda.ComprarArmaMago(choice, Player.player.wallet);
 			}
 			
 			else if (tipo == '2') {
