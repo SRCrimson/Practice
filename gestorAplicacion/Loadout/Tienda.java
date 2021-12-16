@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import gestorAplicacion.pjs.Player;
+
 public class Tienda {
 	
 public static List<Arma>     listaArmasGuerreroTienda  = new ArrayList<Arma>();
@@ -45,12 +47,17 @@ public static void ComprarArmaGuerrero(char nombre, int wallet) {
 	
 	if        (nombre == '1' && wallet >= listaArmasGuerreroTienda.get(0).precio) {
 		Inventario.listaArmasGuerrero.add(listaArmasGuerreroTienda.get(0));          
+		Player.player.wallet -= listaArmasGuerreroTienda.get(0).precio;
 		System.out.println("Compra de arma exitosa!");
+		
 	} else if (nombre == '2' && wallet >= listaArmasGuerreroTienda.get(1).precio) {
 		Inventario.listaArmasGuerrero.add(listaArmasGuerreroTienda.get(1));		      
+		Player.player.wallet -= listaArmasGuerreroTienda.get(1).precio;
 		System.out.println("Compra de arma exitosa!");
+		
 	} else if (nombre == '3' && wallet >= listaArmasGuerreroTienda.get(2).precio) { 
-		Inventario.listaArmasGuerrero.add(listaArmasGuerreroTienda.get(2));           
+		Inventario.listaArmasGuerrero.add(listaArmasGuerreroTienda.get(2));
+		Player.player.wallet -= listaArmasGuerreroTienda.get(2).precio;
 		System.out.println("Compra de arma exitosa!");
 	}
 	else {
@@ -62,12 +69,17 @@ public static void ComprarArmaArquero(char nombre, int wallet) {
 
 	if        (nombre == '1' && wallet >=  listaArmasArqueroTienda.get(0).precio) {   
 		Inventario.listaArmasArquero.add(listaArmasArqueroTienda.get(0));
+		Player.player.wallet -= listaArmasArqueroTienda.get(0).precio;
 		System.out.println("Compra de arma exitosa!");
+		
 	} else if (nombre == '2' && wallet >=  listaArmasArqueroTienda.get(1).precio) {
 		Inventario.listaArmasArquero.add(listaArmasArqueroTienda.get(1));
+		Player.player.wallet -= listaArmasArqueroTienda.get(1).precio;
 		System.out.println("Compra de arma exitosa!");
+		
 	} else if (nombre == '3' && wallet >=  listaArmasArqueroTienda.get(2).precio) {
 		Inventario.listaArmasArquero.add(listaArmasArqueroTienda.get(2));
+		Player.player.wallet -= listaArmasArqueroTienda.get(2).precio;
 		System.out.println("Compra de arma exitosa!");
 	}
 	else {
@@ -79,12 +91,17 @@ public static void ComprarArmaMago(char nombre, int wallet) {
 
 	if        (nombre == '1' && wallet >=  listaArmasMagoTienda.get(0).precio) {
 		Inventario.listaArmasMago.add(listaArmasMagoTienda.get(0));
+		Player.player.wallet -= listaArmasMagoTienda.get(0).precio;
 		System.out.println("Compra de arma exitosa!");
+		
 	} else if (nombre == '2' && wallet >=  listaArmasMagoTienda.get(1).precio) {
 		Inventario.listaArmasMago.add(listaArmasMagoTienda.get(1));
+		Player.player.wallet -= listaArmasMagoTienda.get(1).precio;
 		System.out.println("Compra de arma exitosa!");
+		
 	} else if (nombre == '3' && wallet >=  listaArmasMagoTienda.get(2).precio){
 		Inventario.listaArmasMago.add(listaArmasMagoTienda.get(2));
+		Player.player.wallet -= listaArmasMagoTienda.get(2).precio;
 		System.out.println("Compra de arma exitosa!");
 	}
 	else {
@@ -96,12 +113,17 @@ public static void ComprarArmadura(char nombre, int wallet) {
 
 	if        (nombre == '1' && wallet >= listaArmadurasTienda.get(0).precio) {
 		Inventario.listaArmaduras.add(listaArmadurasTienda.get(0));
+		Player.player.wallet -= listaArmadurasTienda.get(0).precio;
 		System.out.println("Compra de armadura exitosa!");
+		
 	} else if (nombre == '2' && wallet >= listaArmadurasTienda.get(1).precio) {
 		Inventario.listaArmaduras.add(listaArmadurasTienda.get(1));
+		Player.player.wallet -= listaArmadurasTienda.get(1).precio;
 		System.out.println("Compra de armadura exitosa!");
+		
 	} else if (nombre == '3' && wallet >= listaArmadurasTienda.get(2).precio) {
-		Inventario.listaArmaduras.add(listaArmadurasTienda.get(2)); 
+		Inventario.listaArmaduras.add(listaArmadurasTienda.get(2));
+		Player.player.wallet -= listaArmadurasTienda.get(2).precio;
 		System.out.println("Compra de armadura exitosa!");
 	}
 	else {
@@ -113,12 +135,17 @@ public static void ComprarPocion(char nombre, int wallet) {
 
 	if (nombre == '1' && wallet >= listaPocionesTienda.get(0).precio) {           
 		Inventario.listaPociones.add(listaPocionesTienda.get(0));
+		Player.player.wallet -= listaPocionesTienda.get(0).precio;
 		System.out.println("Compra de pocion exitosa!");
+		
 	} else if (nombre == '2' && wallet >= listaPocionesTienda.get(1).precio){
 		Inventario.listaPociones.add(listaPocionesTienda.get(1));
+		Player.player.wallet -= listaPocionesTienda.get(1).precio;
 		System.out.println("Compra de pocion exitosa!");
+		
 	} else if (nombre == '3' && wallet >= listaPocionesTienda.get(2).precio) {
-		Inventario.listaPociones.add(listaPocionesTienda.get(2)); 
+		Inventario.listaPociones.add(listaPocionesTienda.get(2));
+		Player.player.wallet -= listaPocionesTienda.get(2).precio;
 		System.out.println("Compra de pocion exitosa!");
 	}
 	else {
