@@ -96,7 +96,7 @@ public class Player extends gestorAplicacion.pjs.NPC implements Serializable { /
 	}
 
     public static Clase getClase() {
-        return Player.clase;
+        return clase;
     }
         
         
