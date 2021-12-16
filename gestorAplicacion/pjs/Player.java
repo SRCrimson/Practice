@@ -28,7 +28,7 @@ public class Player extends gestorAplicacion.pjs.NPC implements Serializable { /
 		this.AC = 6;
 		this.nivel = 1;
 		this.xp = 0;
-		this.clase = gestorAplicacion.pjs.Clase.GUERRERO;
+		Player.clase = gestorAplicacion.pjs.Clase.GUERRERO;
 		this.edad = 50;
 		this.FUE = 12;
 		this.DES = 12;
@@ -95,7 +95,7 @@ public class Player extends gestorAplicacion.pjs.NPC implements Serializable { /
 	}
 
     public static Clase getClase() {
-        return clase;
+        return Player.clase;
     }
         
         
