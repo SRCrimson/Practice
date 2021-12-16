@@ -48,13 +48,14 @@ public class Player extends gestorAplicacion.pjs.NPC implements Serializable { /
         
         public Player (String nombre, int edad, Clase clase){
             super(nombre, edad, clase, 1);
+            this.HP = 20 + clase.getConstitucion();
             this.FUE += clase.getFuerza() + gestorAplicacion.mecanicas.Narrador.lanzarDados();
             this.DES += clase.getDestreza() + gestorAplicacion.mecanicas.Narrador.lanzarDados();
             this.CON += clase.getConstitucion() + gestorAplicacion.mecanicas.Narrador.lanzarDados();
             this.CAR += clase.getCarisma() + gestorAplicacion.mecanicas.Narrador.lanzarDados();
             this.INT += clase.getInteligencia() + gestorAplicacion.mecanicas.Narrador.lanzarDados();
             this.SAB += clase.getSabiduria() + gestorAplicacion.mecanicas.Narrador.lanzarDados();
-            
+            arquetipo();
             
         }
 
