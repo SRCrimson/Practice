@@ -129,7 +129,39 @@ public class InterfazUsuario {
             switch(clase){
                 case 1: gestorAplicacion.pjs.Player.player = new Player(nombre, edad, gestorAplicacion.pjs.Clase.GUERRERO);
                     System.out.println("Bienvenido " + nombre);
-                uiMain.InterfazUsuario.hojaPJ(); break;
+                uiMain.InterfazUsuario.hojaPJ();
+                try{
+                Thread.sleep(5*1000);
+                } catch(Exception e){
+                    
+                }
+                gestorAplicacion.mecanicas.Narrador.iniciarNuevo();
+                
+                break;
+                
+                case 2: gestorAplicacion.pjs.Player.player = new Player(nombre, edad, gestorAplicacion.pjs.Clase.ARQUERO);
+                    System.out.println("Bienvenido " + nombre);
+                uiMain.InterfazUsuario.hojaPJ();    
+                try{
+                Thread.sleep(5*1000);
+                } catch(Exception e){
+                    
+                }
+                gestorAplicacion.mecanicas.Narrador.iniciarNuevo();
+                
+                break;
+                
+                case 3: gestorAplicacion.pjs.Player.player = new Player(nombre, edad, gestorAplicacion.pjs.Clase.MAGO);
+                    System.out.println("Bienvenido " + nombre);
+                uiMain.InterfazUsuario.hojaPJ();    
+                try{
+                Thread.sleep(5*1000);
+                } catch(Exception e){
+                    
+                }
+                gestorAplicacion.mecanicas.Narrador.iniciarNuevo();
+                
+                break;
             }
             
             
@@ -278,6 +310,7 @@ public class InterfazUsuario {
 		//gestorAplicacion.pjs.Player.player.arquetipo();
 		int nextLvlxp = gestorAplicacion.pjs.Player.player.nivel + gestorAplicacion.pjs.Player.player.nivel * 1000;		
 		System.out.println("Nombre del personaje: " + gestorAplicacion.pjs.Player.player.nombre +"\n"+
+                "Clase: " + gestorAplicacion.pjs.Player.player.getClase() + "\n"+
 		"HP: " + gestorAplicacion.pjs.Player.player.HP+" ("+gestorAplicacion.pjs.Player.player.aHP+")\n"+
 		"Nivel: " + gestorAplicacion.pjs.Player.player.nivel+"\n"+
 		"Experiencia: " + gestorAplicacion.pjs.Player.player.xp+"/"+nextLvlxp+"\n"+
