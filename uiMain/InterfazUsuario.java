@@ -96,7 +96,7 @@ public class InterfazUsuario {
 	
                 do{
 		
-                    System.out.println("                                                   1 - Crear Jugador");
+                    System.out.println("                                                   1 - Crear Personaje");
                     System.out.println("                                                   2 - Partida rapida");
                     System.out.println("                                                   3 - Atras");
                     System.out.print(">> ");	
