@@ -59,10 +59,10 @@ public class Narrador implements Serializable{
 	
 	public static void setEscena(String seleccion) {
 		
-		if (seleccion.equals("a")) {
+		if (seleccion.equals("1")) {
 			intSeleccion = 1;
 			sets();
-		}else if (seleccion.equals("b")){
+		}else if (seleccion.equals("2")){
 			intSeleccion = 3;
 			sets();
 		}else if(Arrays.asList(comandos).contains(seleccion)) {

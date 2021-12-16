@@ -42,7 +42,7 @@ public class InterfazUsuario {
 	String[] tutorial = new String[] {"\u250C\u2500\u2500\u2500 ¿CÓMO JUGAR? \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510",
 	"\u2502 Este relato contiene muchas elecciones: las hay sencillas, sensatas, temerarias... e incluso muy peligrosas.               \u2502\n"+ 
 	"\u2502 Estas elecciones las encontrarás siempre al final de cada narración.                                                       \u2502\n"+
-	"\u2502 Decide entre uno u otro camino escribiendo 'a' o 'b', según corresponda y presionando a continuación la tecla 'Enter'.     \u2502\n"+
+	"\u2502 Decide entre uno u otro camino escribiendo '1' o '2', según corresponda y presionando a continuación la tecla 'Enter'.     \u2502\n"+
 	"\u2502 Puedes realizar otras acciones usando comandos especiales. Puedes ver una lista de comandos escribiendo: help              \u2502",
 	"\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518"
 	};
@@ -271,9 +271,9 @@ public class InterfazUsuario {
 		String separador = str2.repeat(5+Math.max(gestorAplicacion.mecanicas.Narrador.getOpciones()[0].toString().length(),gestorAplicacion.mecanicas.Narrador.getOpciones()[2].toString().length()));
 		System.out.println(marco);
 		
-		System.out.println(" a) "+gestorAplicacion.mecanicas.Narrador.getOpciones()[0]);
+		System.out.println(" 1 - "+gestorAplicacion.mecanicas.Narrador.getOpciones()[0]);
 		System.out.println(separador);
-		System.out.println(" b) "+ gestorAplicacion.mecanicas.Narrador.getOpciones()[2]);		
+		System.out.println(" 2 - "+ gestorAplicacion.mecanicas.Narrador.getOpciones()[2]);		
 		System.out.print(marco);		
 		promptPlayer();
 
