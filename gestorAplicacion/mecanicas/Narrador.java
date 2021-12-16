@@ -46,6 +46,10 @@ public class Narrador implements Serializable{
 		uiMain.InterfazUsuario.escenario();
 		uiMain.InterfazUsuario.narracion();
 	}
+        
+        public static void crearNuevo(){
+                uiMain.InterfazUsuario.menuCrear();
+        }
 
 	public static void cargarJuego(){
 		baseDatos.persistencia.leerFichero();
