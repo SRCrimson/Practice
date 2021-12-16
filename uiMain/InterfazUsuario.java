@@ -12,7 +12,6 @@ import java.lang.*;
 import gestorAplicacion.pjs.Player;
 import gestorAplicacion.Loadout.Arma;
 import gestorAplicacion.Loadout.Armadura;
-import gestorAplicacion.mecanicas.Colores;
 
 
 
@@ -67,14 +66,16 @@ public class InterfazUsuario {
 		System.out.println(swordArt);
 		System.out.println("                                                   1 - Nuevo juego");
 		System.out.println("                                                   2 - Cargar juego");
-		System.out.println("                                                   3 - Salir");
+		System.out.println("                                                   3 - Comandos");
+		System.out.println("                                                   4 - Salir");
 		System.out.print(">> ");	
 				
                 try {
                     switch(teclado.nextInt()){
                                 case 1: gestorAplicacion.mecanicas.Narrador.crearNuevo();salirMenu=true;break;                    
 				case 2: gestorAplicacion.mecanicas.Narrador.cargarJuego();salirMenu=true;break;
-				case 3: comandoExit();System.exit(0);
+				case 3: comandoHelp();salirMenu=false;break;
+				case 4: comandoExit();System.exit(0);
 				default:System.err.println("\uD83D\uDFE6 Elige una opción válida");
 			}		
 		}catch(InputMismatchException e){
