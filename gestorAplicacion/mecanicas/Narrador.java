@@ -197,6 +197,7 @@ public class Narrador implements Serializable{
 				}
 				
 				if (enemy.HP < 0){
+					uiMain.InterfazUsuario.allEscenas.get(escenaActual).hayCombate = false;
 					int oro = (int)(Math.random()*(22-10+1)+10)*enemy.nivel;
 					uiMain.InterfazUsuario.victoria(enemy.nombre, enemy.nivel, oro);
 					darExp(enemy.nivel);
