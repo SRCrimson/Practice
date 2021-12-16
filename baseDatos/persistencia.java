@@ -41,7 +41,8 @@ public class persistencia {
             dataEsc.close();
 
         }catch(Exception e){
-            e.printStackTrace();
+            System.out.println("No hay una partida guardada - se iniciará una partida nueva");
+            //e.printStackTrace();
         }
     }
 }

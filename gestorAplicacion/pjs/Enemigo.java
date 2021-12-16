@@ -18,6 +18,19 @@ public class Enemigo extends NPC{
 		this.CAR = 12;
     }
 
+	public void trasgo(){
+        this.nombre = "trasgo";
+        this.HP = 28;
+        this.nivel = 2;
+        this.dano = 3;
+        this.FUE = 12;
+		this.DES = 10;
+		this.CON = 13;
+		this.INT = 6;
+		this.SAB = 6;
+		this.CAR = 2;
+    }
+
     @Override  // Método abstractos
 	public String getNombre() {		
 		return this.nombre;

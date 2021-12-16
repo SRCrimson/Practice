@@ -82,10 +82,8 @@ public class Player extends gestorAplicacion.pjs.NPC implements Serializable { /
 
 	
 
-	public static Player player = new Player("asda");
-	/*public void moverse() { // NO ES NECESARIO
-		
-	}*/
+	public static Player player = new Player("");
+
 	@Override
 	public String getNombre() {		
 		return this.nombre;
