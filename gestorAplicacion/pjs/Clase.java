@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public enum Clase implements Serializable{
     
-    GUERRERO(12,1, 1, 8, 1, 1), ARQUERO(1,12,1,1,8,1), MAGO(1,1,12,1,1,8);
+    GUERRERO(8,1, 1, 5, 1, 1), ARQUERO(1,8,1,1,5,1), MAGO(1,1,8,1,1,5);
     private int fuerza, destreza, inteligencia, constitucion, carisma, sabiduria;
     
     private static Double hitBlock=3.5;         //probabilidad de bloquear golpe, es la misma para todas las clases excpeto GUERRERO, que tiene un bono de 20% de probabilidad
@@ -50,7 +50,7 @@ public enum Clase implements Serializable{
                 Clase.setCritHitChance(5.5);
             
             case MAGO:
-                Clase.setHpRecovery(5.0);
+                Clase.setHpRecovery(3.8);
         }
                 
     }
